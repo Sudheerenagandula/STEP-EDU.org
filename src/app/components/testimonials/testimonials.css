@@ -1,0 +1,78 @@
+/* Section Background */
+.testimonials-section {
+  background: #f8f9fa;
+  padding: 80px 0;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Stars */
+.stars {
+  color: #ffc107;
+  font-size: 18px;
+}
+
+/* Text */
+.testimonial-text {
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* User Section */
+.testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Avatar Circle */
+.avatar {
+  width: 45px;
+  height: 45px;
+  background: #198754;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Impact Banner */
+.impact-banner {
+  background: linear-gradient(135deg, #198754, #146c43);
+  color: white;
+  padding: 60px 30px;
+  border-radius: 20px;
+}
+
+.impact-banner .btn {
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 50px 0;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,72 @@
+<nav class="nav-shell" [class.nav-scrolled]="isScrolled">
+  <div class="nav-accent-line"></div>
+
+  <div class="container nav-inner">
+
+    <!-- Brand (Left) -->
+    <a class="nav-brand" routerLink="/">
+  <div class="nav-brand-icon">
+  <img
+    src="/Step-logo.jpg"
+    alt="STEP Logo"
+    class="nav-brand-img"
+     onerror="this.style.display='none'"
+  />
+</div>
+  <div class="nav-brand-text">
+    <span class="nav-brand-name">STEP</span>
+    <span class="nav-brand-sep"></span>
+    <span class="nav-brand-tagline">The Finishing School</span>
+  </div>
+</a>
+
+    <!-- Mobile Toggler -->
+    <button class="nav-toggler" (click)="toggleMenu()" [class.is-open]="menuOpen">
+      <span class="tog-line"></span>
+      <span class="tog-line"></span>
+      <span class="tog-line"></span>
+    </button>
+
+    <!-- Links (Right) -->
+    <ul class="nav-links" [class.nav-links--open]="menuOpen">
+      <li class="nav-links__item">
+        <a class="nav-links__anchor" routerLink="/"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{exact: true}"
+          (click)="closeMenu()">
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="nav-links__item">
+        <a class="nav-links__anchor" routerLink="/about"
+          routerLinkActive="is-active"
+          (click)="closeMenu()">
+          <span>About</span>
+        </a>
+      </li>
+      <li class="nav-links__item">
+        <a class="nav-links__anchor" routerLink="/courses"
+          routerLinkActive="is-active"
+          (click)="closeMenu()">
+          <span>Courses</span>
+        </a>
+      </li>
+      <li class="nav-links__item">
+        <a class="nav-links__anchor" routerLink="/testimonials"
+          routerLinkActive="is-active"
+          (click)="closeMenu()">
+          <span>Testimonials</span>
+        </a>
+      </li>
+      <li class="nav-links__item nav-links__item--cta">
+        <a class="nav-cta-btn" routerLink="/contact"
+          routerLinkActive="is-active"
+          (click)="closeMenu()">
+          <span>Contact Us</span>
+          <i class="fas fa-arrow-right nav-cta-arrow"></i>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>

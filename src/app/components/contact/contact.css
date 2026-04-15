@@ -1,0 +1,128 @@
+/* ══════════════════════════════════════
+   CONTACT SECTION — PREMIUM STYLE
+══════════════════════════════════════ */
+.contact-section {
+  padding: 100px 0;
+  background: var(--surface);
+}
+
+.contact-card,
+.contact-form-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover,
+.contact-form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-title i {
+  color: var(--green-mid);
+}
+
+.contact-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 26px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(22,163,74,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-icon i {
+  color: var(--green-mid);
+  font-size: 1rem;
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.contact-item span,
+.contact-item a {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: var(--green);
+}
+
+.contact-form-card label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.contact-form-card .form-control,
+.contact-form-card .form-select {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form-card .form-control:focus,
+.contact-form-card .form-select:focus {
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 3px rgba(22,163,74,0.15);
+}
+
+.location-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.location-entry {
+  padding: 10px 12px;
+  border-left: 3px solid var(--primary-color, #0d6efd);
+  background: rgba(13, 110, 253, 0.04);
+  border-radius: 0 6px 6px 0;
+}
+
+.location-entry p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.location-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--primary-color, #0d6efd);
+}
