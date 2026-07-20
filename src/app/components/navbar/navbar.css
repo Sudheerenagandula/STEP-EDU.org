@@ -374,3 +374,11 @@
     border-radius: 8px;
   }
 }
+
+.nav-brand-name {
+  font-weight: 500;
+}
+
+.nav-brand-tagline {
+  font-weight: 700;
+}
