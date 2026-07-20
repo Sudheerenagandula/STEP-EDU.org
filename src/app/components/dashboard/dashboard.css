@@ -49,7 +49,7 @@ body {
   position: relative; /* FIX: contain positioned children */
 }
 
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 200%; }
 a { text-decoration: none; }
 
 .container {
