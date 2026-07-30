@@ -5,10 +5,15 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink, CommonModule],  // ← removed Hero, About, Courses etc. — they are separate routes
+  imports: [RouterLink, CommonModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
   encapsulation: ViewEncapsulation.None
+  // NOTE: kept None — dashboard.css defines :root CSS variables
+  // (--dark, --gold-light, --green, etc.) that must apply globally.
+  // Emulated encapsulation rewrites ":root" to ":root[_ngcontent-xyz]",
+  // which matches nothing, silently undefining every variable.
+  // Only remove this once the :root block is moved to src/styles.css.
 })
 export class Dashboard implements AfterViewInit {
 
@@ -43,8 +48,12 @@ export class Dashboard implements AfterViewInit {
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
     this.initCountUp();
+    this.initScrollReveal();
   }
 
+  /* ══════════════════════════════════════
+     STATS COUNT-UP (unchanged)
+  ══════════════════════════════════════ */
   private initCountUp(): void {
     const statsSection = this.el.nativeElement.querySelector('.stats-section');
     if (!statsSection) return;
@@ -102,5 +111,37 @@ export class Dashboard implements AfterViewInit {
         stat.suffix = '–12';
       }
     }, duration / steps);
+  }
+
+  /* ══════════════════════════════════════
+     SCROLL REVEAL
+     Fades/slides in any element with class="reveal" or
+     class="reveal-stagger" as it enters the viewport.
+     Uses the .reveal / .reveal-visible / .reveal-stagger
+     CSS already defined at the bottom of dashboard.css.
+  ══════════════════════════════════════ */
+  private initScrollReveal(): void {
+    const targets: NodeListOf<HTMLElement> =
+      this.el.nativeElement.querySelectorAll('.reveal, .reveal-stagger');
+
+    if (!targets.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            // Reveal once, then stop watching this element
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,       // trigger when ~15% of the element is visible
+        rootMargin: '0px 0px -60px 0px' // reveal slightly before it's fully in view
+      }
+    );
+
+    targets.forEach(el => observer.observe(el));
   }
 }

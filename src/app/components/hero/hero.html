@@ -1,24 +1,38 @@
 <section id="home" class="hero-section">
   <div class="container-fluid hero-content">
     <div class="row align-items-center min-vh-100">
+      <!-- LEFT: Text content -->
       <div class="col-lg-6">
-        <h1 class="display-4 fw-bold mb-4">
-          Success Through Empowering Personality
-        </h1>
-        <p class="lead mb-4">
-          Transform yourself with STEP - The Finishing School. Master personality development,
-          communication skills, and professional etiquette.
-        </p>
-        <button class="btn btn-success btn-lg me-2" routerLink="/contact">
-          <i class="fas fa-play"></i> Get Started
-        </button>
-        <button class="btn btn-outline-success btn-lg" routerLink="/about">
-          <i class="fas fa-info-circle"></i> Learn More
-        </button>
+        <div class="enrolling-badge">
+          <span class="pulse-dot"></span> Now Enrolling — Batch 2026
+        </div>
+
+        <h1 class="step-title">STEP</h1>
+        <p class="step-tagline">Success Through Empowering Personality</p>
+        <p class="step-subtext">THE FINISHING SCHOOL</p>
+
+        <div class="hero-buttons">
+          <button class="btn btn-success btn-lg me-2" routerLink="/courses">
+            Explore Courses <i class="fas fa-arrow-right"></i>
+          </button>
+          <button class="btn btn-outline-light btn-lg" routerLink="/contact">
+            Contact Us
+          </button>
+        </div>
       </div>
+
+      <!-- RIGHT: Image + badge + vision card -->
       <div class="col-lg-6">
-        <div class="hero-image">
-          <i class="fas fa-users fa-10x text-success opacity-25"></i>
+        <div class="hero-image-wrapper">
+          <img src="/public/hero1.jpg" alt="Never Stop, Ready Your Future" class="hero-img" />
+          <div class="students-placed-badge">
+            <i class="fas fa-user-friends"></i> 500+ Students Placed
+          </div>
+        </div>
+
+        <div class="hero-vision">
+          <span class="vision-label">Our Vision</span>
+          <p>To enable every human to pursue a <span class="vision-highlight">career they love</span> / dream.</p>
         </div>
       </div>
     </div>
