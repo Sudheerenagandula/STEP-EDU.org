@@ -581,7 +581,8 @@ a { text-decoration: none; }
     grid-template-columns: 1fr;
     gap: 24px;
   }
-}/* ══════════════════════════════════════
+}
+/* ══════════════════════════════════════
    ADDING VALUE
 ══════════════════════════════════════ */
 .value-section {
@@ -864,13 +865,11 @@ a { text-decoration: none; }
   width: 100%;
 }
 .transformation-bg-img { position: absolute; inset: 0; z-index: 0; }
-.transformation-bg-img img,
-.transformation-bg-img .img-placeholder {
+.transformation-bg-img img {
   width: 100%; height: 100%;
   object-fit: cover;
   filter: brightness(0.35) saturate(0.6);
 }
-.transformation-bg-img .img-placeholder { border: none; border-radius: 0; background: linear-gradient(135deg, #061008 0%, #0a1a0c 100%); }
 .transformation-overlay {
   position: absolute; inset: 0;
   background:
@@ -899,22 +898,28 @@ a { text-decoration: none; }
 .transformation-text .section-label { margin-bottom: 16px; }
 .transformation-text h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
-  color: #fff; line-height: 1.12; margin-bottom: 20px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.12;
+  margin-bottom: 20px;
 }
 .transformation-text h2 em { font-style: italic; color: var(--green-bright); }
 .transformation-text > p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 18px; }
 .transformation-text > p strong { color: rgba(255,255,255,0.82); }
 .transformation-quote {
   border-left: 3px solid var(--green-mid);
-  padding: 16px 20px; margin: 28px 0 32px;
+  padding: 16px 20px;
+  margin: 28px 0 32px;
   background: rgba(34,197,94,0.06);
   border-radius: 0 10px 10px 0;
 }
 .transformation-quote p {
   font-family: var(--font-display);
-  font-size: 1.1rem; font-style: italic;
-  color: rgba(255,255,255,0.75); line-height: 1.6;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
 }
 .t-steps { display: flex; flex-direction: column; }
 .t-step {
@@ -927,9 +932,13 @@ a { text-decoration: none; }
 .t-step:hover { padding-left: 8px; }
 .t-step-num {
   font-family: var(--font-display);
-  font-size: 1.9rem; font-weight: 700;
-  color: rgba(34,197,94,0.18); line-height: 1;
-  flex-shrink: 0; width: 34px; padding-top: 3px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: rgba(34,197,94,0.18);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 34px;
+  padding-top: 3px;
   transition: color 0.3s;
 }
 .t-step:hover .t-step-num { color: rgba(34,197,94,0.5); }
@@ -942,22 +951,18 @@ a { text-decoration: none; }
 .warning-strip {
   position: relative;
   padding: 64px 0;
+    margin-top: 48px;
   overflow: hidden;
   text-align: center;
   width: 100%;
 }
 .warning-strip-bg { position: absolute; inset: 0; z-index: 0; }
-.warning-strip-bg img,
-.warning-strip-bg .img-placeholder {
+.warning-strip-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
   filter: brightness(0.3) saturate(0.5);
 }
-.warning-strip-bg .img-placeholder { border: none; border-radius: 0; background: linear-gradient(135deg, #0a200a, #051405); }
-.warning-strip-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(135deg, rgba(20,92,46,0.88), rgba(10,40,18,0.94));
-}
+
 .warning-pattern {
   position: absolute; inset: 0; z-index: 2; opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
@@ -969,8 +974,11 @@ a { text-decoration: none; }
 .warning-inner .section-label { margin-bottom: 18px; }
 .warning-inner h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 700;
-  color: #fff; margin-bottom: 18px; line-height: 1.28;
+  font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+  line-height: 1.28;
 }
 .warning-inner h3 em { font-style: italic; color: #86efac; }
 .warning-inner p { font-size: 0.93rem; color: rgba(255,255,255,0.7); line-height: 1.72; margin-bottom: 30px; }
