@@ -373,7 +373,7 @@ a { text-decoration: none; }
 
 .hero-img-frame {
   position: relative;
-  width: 150%;
+  width: 140%;
   border-radius: var(--radius-xl);
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.1);
@@ -383,7 +383,7 @@ a { text-decoration: none; }
 
 .hero-img-frame img {
   display: block;
-  width: 200%;
+  width: 150%;
   height: auto;
 }
 
