@@ -1004,65 +1004,84 @@ a { text-decoration: none; }
 /* ══════════════════════════════════════
    CTA
 ══════════════════════════════════════ */
+/* ══════════════════════════════════════
+   CTA
+══════════════════════════════════════ */
 .cta-section {
   position: relative;
   padding: 110px 0;
-  background: var(--surface);
+
   overflow: hidden;
   width: 100%;
+  min-height: 480px;
 }
-.cta-glow {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 50% 65% at 50% 50%, rgba(22,163,74,0.07) 0%, transparent 70%);
+
+/* ── Background image ── */
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+.cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  opacity: 0.45;         /* visible, not washed to nothing */
+  filter: saturate(0.9);
+}
+
+/* ── Soft wash so text stays readable over the image ── */
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
   pointer-events: none;
 }
-.cta-inner { position: relative; text-align: center; }
+
+.cta-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(ellipse 50% 65% at 50% 50%, rgba(22,163,74,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
 .cta-inner .section-label { margin-bottom: 20px; }
-.cta-inner h2 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; color: var(--ink); margin-bottom: 18px; }
+.cta-inner h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
 .cta-inner p {
-  font-size: 1rem; color: var(--ink-muted); line-height: 1.68;
-  margin-bottom: 38px; max-width: 580px;
-  margin-left: auto; margin-right: auto;
+  font-size: 1rem;
+  line-height: 1.68;
+  margin-bottom: 38px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
-@media (max-width: 1024px) {
-  .hero-vision-card { padding: 32px 28px; }
-}
 @media (max-width: 900px) {
-  .hero-split {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 120px 24px 100px;
-    text-align: center;
-  }
-  .hero-left { align-items: center; }
-  .hero-actions { justify-content: center; }
-  .hero-step { font-size: clamp(5rem, 18vw, 7rem); }
-  .hero-vision-card { text-align: left; }
-  .value-layout,
-  .transformation-layout,
-  .scope-layout { grid-template-columns: 1fr; gap: 52px; }
-  .why-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .stat-item:not(:last-child)::after { display: none; }
-  .invest-cards { grid-template-columns: 1fr; }
-  .income-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 90px 0; min-height: 400px; }
 }
 @media (max-width: 576px) {
-  .container { padding: 0 20px; }
-  .stats-grid { grid-template-columns: 1fr; }
-  .learn-grid { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; }
-  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
-  .scope-cards { grid-template-columns: 1fr; }
-  .income-block { padding: 24px 20px; }
-  .stat-item { padding: 38px 20px; }
-  .hero-vision-card { padding: 28px 22px; }
+  .cta-section { padding: 70px 0; }
 }
-
 
 /* ══════════════════════════════════════
    SCROLL REVEAL
