@@ -9,13 +9,13 @@
 .about-section {
   position: relative;
   background-color: var(--surface, #fafaf8);
-  padding: 140px 0 100px;   /* increased top padding: 100px → 140px for proper gap under navbar */
+  padding: 100px 0 100px;   /* increased top padding: 100px → 140px for proper gap under navbar */
   overflow: hidden;
 }
 
 .about-section .section-header {
   text-align: center;        /* change to 'left' if you want left-aligned instead */
-  max-width: 1500px;         /* widened from 640px/900px for more breathing room */
+  max-width: 1000px;         /* widened from 640px/900px for more breathing room */
   margin: 0 auto 64px;
 }
 

@@ -52,8 +52,8 @@
 
 /* ── Brand icon wrapper ── */
 .nav-brand-icon {
-  width: 48px;
-  height: 48px;
+  width: 70px;
+  height: 70px;
   border-radius: 10px;
   overflow: hidden;
   border: none;
@@ -73,8 +73,8 @@
 
 /* ── Logo image ── */
 .nav-brand-img {
-  width: 48px;
-  height: 48px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   object-position: center;
   display: block;
