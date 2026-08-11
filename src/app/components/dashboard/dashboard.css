@@ -202,31 +202,53 @@ a { text-decoration: none; }
    HERO
 ══════════════════════════════════════ */
 /* ══════════════════════════════════════
-   HERO
-══════════════════════════════════════ */
-/* ══════════════════════════════════════
-   HERO
+   HERO — full-bleed image + content below
 ══════════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: radial-gradient(ellipse 120% 80% at 20% -10%, #10231a 0%, var(--dark) 55%),
-              var(--dark);
   width: 100%;
+  background: var(--dark);
+}
+
+/* ── Full-screen image block ── */
+.hero-media {
+  position: relative;
+  width: 100%;
+  height: 115vh;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-img-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(9,14,20,0.15) 0%,
+      rgba(9,14,20,0.05) 45%,
+      rgba(9,14,20,0.65) 82%,
+      var(--dark) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .hero-glow {
   position: absolute;
   width: 700px; height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(34,197,94,0.13) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 68%);
   top: -250px; left: -200px;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 .hero-noise {
@@ -235,29 +257,35 @@ a { text-decoration: none; }
   opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
-.hero-split {
+.hero-scroll {
+  position: absolute;
+  bottom: 28px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.hero-scroll span {
+  display: block;
+  width: 1px; height: 52px;
+  background: linear-gradient(to bottom, transparent, rgba(34,197,94,0.6));
+  animation: scrollLine 2.2s ease-in-out infinite;
+  margin: 0 auto;
+}
+
+/* ── Content below the image ── */
+.hero-content {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 64px;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 130px 32px 100px;
-  box-sizing: border-box;
-}
-
-/* ── LEFT ── */
-.hero-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
+  align-items: center;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 32px 90px;
+  margin-top: -110px; /* pulls content up to overlap the tinted fade at image bottom */
 }
 
 .hero-badge {
@@ -355,59 +383,8 @@ a { text-decoration: none; }
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  animation: fadeUp 0.7s ease 0.4s both;
-}
-
-/* ── RIGHT: framed image panel ── */
-.hero-right {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-width: 0;
-  height: auto;
-  animation: fadeUp 0.8s ease 0.2s both;
-}
-
-.hero-img-frame {
-  position: relative;
-  width: 140%;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 30px 90px rgba(0,0,0,0.45), 0 4px 20px rgba(0,0,0,0.3);
-  /* no aspect-ratio — frame hugs the image's natural shape, no gaps */
-}
-
-.hero-img-frame img {
-  display: block;
-  width: 150%;
-  height: auto;
-}
-
-/* Gentle brand-tinted wash so the photo feels integrated with the
-   green/gold palette instead of a random stock image */
-.hero-img-tint {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, rgba(20,92,46,0.22) 0%, transparent 45%, rgba(9,14,20,0.35) 100%);
-  pointer-events: none;
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 32px; left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-}
-.hero-scroll span {
-  display: block;
-  width: 1px; height: 52px;
-  background: linear-gradient(to bottom, transparent, rgba(34,197,94,0.5));
-  animation: scrollLine 2.2s ease-in-out infinite;
-  margin: 0 auto;
+  animation: fadeUp 0.7s ease 0.4s both;
 }
 
 /* ══════════════════════════════════════
@@ -426,58 +403,11 @@ a { text-decoration: none; }
 }
 
 /* ══════════════════════════════════════
-   RESPONSIVE (hero)
+   RESPONSIVE
 ══════════════════════════════════════ */
 @media (max-width: 900px) {
-  .hero-split {
-    grid-template-columns: 1fr;
-    gap: 44px;
-    padding: 120px 24px 90px;
-    text-align: center;
-  }
-  .hero-left { align-items: center; }
-  .hero-actions { justify-content: center; }
-  .hero-img-frame { max-width: 480px; margin: 0 auto; }
-}
-@media (max-width: 576px) {
-  .hero-actions { flex-direction: column; width: 100%; }
-  .hero-actions .btn-primary,
-  .hero-actions .btn-ghost { width: 100%; justify-content: center; }
-}
-
-/* ══════════════════════════════════════
-   RESPONSIVE (hero)
-══════════════════════════════════════ */
-@media (max-width: 900px) {
-  .hero-split {
-    grid-template-columns: 1fr;
-    gap: 44px;
-    padding: 120px 24px 90px;
-    text-align: center;
-  }
-  .hero-left { align-items: center; }
-  .hero-actions { justify-content: center; }
-  .hero-img-frame { aspect-ratio: 16 / 10; max-width: 480px; margin: 0 auto; }
-}
-@media (max-width: 576px) {
-  .hero-actions { flex-direction: column; width: 100%; }
-  .hero-actions .btn-primary,
-  .hero-actions .btn-ghost { width: 100%; justify-content: center; }
-}
-
-/* ══════════════════════════════════════
-   RESPONSIVE (hero)
-══════════════════════════════════════ */
-@media (max-width: 900px) {
-  .hero-split {
-    grid-template-columns: 1fr;
-    gap: 44px;
-    padding: 120px 24px 90px;
-    text-align: center;
-  }
-  .hero-left { align-items: center; }
-  .hero-actions { justify-content: center; }
-  .hero-img-frame { aspect-ratio: 16 / 10; max-width: 480px; margin: 0 auto; }
+  .hero-media { height: 70vh; min-height: 420px; }
+  .hero-content { margin-top: -80px; padding: 40px 24px 70px; }
 }
 @media (max-width: 576px) {
   .hero-actions { flex-direction: column; width: 100%; }
