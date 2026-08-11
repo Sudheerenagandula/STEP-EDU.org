@@ -788,6 +788,9 @@ a { text-decoration: none; }
 /* ══════════════════════════════════════
    TRANSFORMATION
 ══════════════════════════════════════ */
+/* ══════════════════════════════════════
+   TRANSFORMATION
+══════════════════════════════════════ */
 .transformation-section {
   position: relative;
   padding: 110px 0;
@@ -798,12 +801,12 @@ a { text-decoration: none; }
 .transformation-bg-img img {
   width: 100%; height: 100%;
   object-fit: cover;
-  filter: brightness(0.35) saturate(0.6);
+  filter: brightness(0.95) saturate(0.6);
 }
 .transformation-overlay {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(9,14,20,0.5) 0%, rgba(9,14,20,0.3) 50%, rgba(9,14,20,0.6) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.62) 50%, rgba(0,0,0,0.85) 100%),
     radial-gradient(ellipse 60% 80% at 5% 50%, rgba(22,163,74,0.12) 0%, transparent 60%);
   z-index: 1;
 }
@@ -828,15 +831,15 @@ a { text-decoration: none; }
 .transformation-text .section-label { margin-bottom: 16px; }
 .transformation-text h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 700;
   color: #fff;
   line-height: 1.12;
   margin-bottom: 20px;
 }
 .transformation-text h2 em { font-style: italic; color: var(--green-bright); }
-.transformation-text > p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 18px; }
-.transformation-text > p strong { color: rgba(255,255,255,0.82); }
+.transformation-text > p { font-size: 0.9rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 18px; }
+.transformation-text > p strong { color: #ffffff; font-weight: 700; }
 .transformation-quote {
   border-left: 3px solid var(--green-mid);
   padding: 16px 20px;
@@ -848,14 +851,14 @@ a { text-decoration: none; }
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-style: italic;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.85);
   line-height: 1.6;
 }
 .t-steps { display: flex; flex-direction: column; }
 .t-step {
   display: flex; gap: 22px;
   padding: 22px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   transition: padding-left 0.28s ease;
 }
 .t-step:last-child { border-bottom: none; }
@@ -864,17 +867,17 @@ a { text-decoration: none; }
   font-family: var(--font-display);
   font-size: 1.9rem;
   font-weight: 700;
-  color: rgba(34,197,94,0.18);
+  color: rgba(34,197,94,0.22);
   line-height: 1;
   flex-shrink: 0;
   width: 34px;
   padding-top: 3px;
   transition: color 0.3s;
 }
-.t-step:hover .t-step-num { color: rgba(34,197,94,0.5); }
-.t-step h5 { font-size: 0.92rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
-.t-step p { font-size: 0.81rem; color: rgba(255,255,255,0.42); line-height: 1.65; }
-
+.t-step:hover .t-step-num { color: rgba(34,197,94,0.55); }
+.t-step h5 { font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.t-step p { font-size: 0.81rem; color: rgba(255,255,255,0.68); line-height: 1.65; }
+.t-step p strong { color: #ffffff; font-weight: 700; }
 /* ══════════════════════════════════════
    CAREER WARNING STRIP
 ══════════════════════════════════════ */
