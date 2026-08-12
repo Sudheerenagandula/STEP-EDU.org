@@ -321,6 +321,7 @@ a { text-decoration: none; }
   /* fadeUp animation removed — handled by .reveal-stagger now */
 }
 .hero-step {
+  position: relative;
   display: block;
   font-family: var(--font-display);
   font-size: clamp(4.6rem, 9vw, 7.2rem);
@@ -331,9 +332,39 @@ a { text-decoration: none; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-bottom: 22px; /* room for the accent line below */
 }
-/* Soft glow highlight behind STEP */
 
+/* Soft glow highlight behind STEP */
+/* Thin gold accent line, centered, well short of full width */
+.hero-step::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--gold-light) 25%,
+      var(--gold-light) 75%,
+      transparent);
+  opacity: 0.85;
+}
+
+/* Very soft ambient glow behind the whole word — barely-there, not a block highlight */
+.hero-step::before {
+  content: "";
+  position: absolute;
+  inset: -12% 8% 4% 8%;
+  background: radial-gradient(ellipse at center,
+      rgba(212,175,55,0.06) 0%,
+      transparent 70%);
+  filter: blur(24px);
+  z-index: -1;
+  pointer-events: none;
+}
 
 .hero-tagline {
   display: block;
