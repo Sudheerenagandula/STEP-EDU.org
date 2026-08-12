@@ -1,3 +1,4 @@
+
 /* ══════════════════════════════════════
    TOKENS
 ══════════════════════════════════════ */
@@ -1187,4 +1188,64 @@ a { text-decoration: none; }
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+
+/* ══════════════════════════════════════
+   GLOBAL MOBILE RESPONSIVE FIXES
+══════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .container { padding: 0 20px; }
+
+  .value-layout { grid-template-columns: 1fr; gap: 48px; }
+  .value-img-wrap { height: 260px; }
+  .learn-grid { grid-template-columns: 1fr; }
+
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat-item:nth-child(2n)::after { display: none; }
+  .stat-item:not(:nth-child(2n))::after {
+    top: auto; right: 18%; left: 18%; bottom: 0; height: 1px; width: auto;
+  }
+  .stat-item { padding: 36px 20px; }
+
+  .transformation-layout { grid-template-columns: 1fr; gap: 48px; }
+
+  .scope-layout { grid-template-columns: 1fr; gap: 40px; }
+
+  .invest-cards { grid-template-columns: 1fr; }
+  .income-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .income-block { padding: 30px 24px; }
+
+  .section-header { margin-bottom: 44px; }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 18px; }
+
+  .why-card-body { padding: 20px 20px 22px; }
+
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item:not(:last-child)::after { display: none; }
+  .stat-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .scope-cards { grid-template-columns: 1fr; }
+  .income-grid { grid-template-columns: 1fr; }
+
+  .t-step { gap: 16px; padding: 18px 0; }
+  .t-step-num { font-size: 1.5rem; width: 28px; }
+
+  .not-taught { padding: 22px 20px; }
+
+  .cta-inner h2 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+
+  .warning-strip { padding: 48px 0; margin-top: 32px; }
+}
+
+@media (max-width: 400px) {
+  .hero-actions { gap: 10px; }
+  .stat-value { flex-wrap: wrap; justify-content: center; }
+  .learn-card { padding: 14px 12px; }
 }
