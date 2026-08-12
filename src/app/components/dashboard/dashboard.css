@@ -301,7 +301,7 @@ a { text-decoration: none; }
   padding: 7px 18px;
   border-radius: 100px;
   margin-bottom: 30px;
-  animation: fadeUp 0.6s ease both;
+  /* fadeUp animation removed — handled by .reveal-stagger now */
 }
 .badge-pulse {
   width: 7px; height: 7px;
@@ -317,7 +317,8 @@ a { text-decoration: none; }
 
 .hero-title {
   margin-bottom: 14px;
-  animation: fadeUp 0.7s ease 0.15s both;
+   position: relative;
+  /* fadeUp animation removed — handled by .reveal-stagger now */
 }
 .hero-step {
   display: block;
@@ -331,6 +332,9 @@ a { text-decoration: none; }
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+/* Soft glow highlight behind STEP */
+
+
 .hero-tagline {
   display: block;
   font-family: var(--font-display);
@@ -350,7 +354,7 @@ a { text-decoration: none; }
   text-transform: uppercase;
   color: var(--gold-light);
   margin: 18px 0 18px;
-  animation: fadeUp 0.7s ease 0.25s both;
+  /* fadeUp animation removed — handled by .reveal-stagger now */
 }
 
 .hero-divider {
@@ -359,7 +363,7 @@ a { text-decoration: none; }
   background: linear-gradient(90deg, var(--green-bright), var(--gold-light));
   border-radius: 2px;
   margin-bottom: 22px;
-  animation: fadeUp 0.7s ease 0.28s both;
+  /* fadeUp animation removed — handled by .reveal-stagger now */
 }
 
 .hero-mission {
@@ -371,7 +375,7 @@ a { text-decoration: none; }
   line-height: 1.6;
   max-width: 460px;
   margin: 0 0 36px;
-  animation: fadeUp 0.7s ease 0.3s both;
+  /* fadeUp animation removed — handled by .reveal-stagger now */
 }
 .hero-mission .highlight {
   color: var(--green-bright);
@@ -384,8 +388,39 @@ a { text-decoration: none; }
   gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
-  animation: fadeUp 0.7s ease 0.4s both;
+  /* fadeUp animation removed — handled by .reveal-stagger now */
 }
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL (shared utility — safe to
+   keep here or move to global styles.css
+   if other components also use it)
+══════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-stagger.reveal-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.reveal-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.reveal-visible > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger.reveal-visible > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger.reveal-visible > *:nth-child(4) { transition-delay: 0.28s; }
+.reveal-stagger.reveal-visible > *:nth-child(5) { transition-delay: 0.3s; }
+.reveal-stagger.reveal-visible > *:nth-child(6) { transition-delay: 0.4s; }
 
 /* ══════════════════════════════════════
    ANIMATIONS
@@ -396,10 +431,6 @@ a { text-decoration: none; }
   60%  { transform: scaleY(1); transform-origin: top; }
   61%  { transform-origin: bottom; }
   100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(22px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ══════════════════════════════════════
@@ -414,7 +445,6 @@ a { text-decoration: none; }
   .hero-actions .btn-primary,
   .hero-actions .btn-ghost { width: 100%; justify-content: center; }
 }
-
 /* ══════════════════════════════════════
    WHY FINISHING SCHOOL
 ══════════════════════════════════════ */
