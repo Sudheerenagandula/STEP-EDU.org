@@ -226,7 +226,7 @@ a { text-decoration: none; }
   width: 100%;
   height: 115vh;
   min-height: 560px;
-  max-height: 900px;   /* NEW: stop it growing absurdly tall on tall/narrow phones */
+  max-height: 900px;
   overflow: hidden;
 }
 
@@ -296,7 +296,7 @@ a { text-decoration: none; }
   max-width: 760px;
   margin: 0 auto;
   padding: 56px 32px 90px;
-  margin-top: -110px; /* pulls content up to overlap the tinted fade at image bottom */
+  margin-top: -110px;
 }
 
 .hero-badge {
@@ -326,9 +326,10 @@ a { text-decoration: none; }
 }
 
 .hero-title {
-  margin-bottom: 14px;
-   position: relative;
+  margin-bottom: 0;
+  position: relative;
 }
+
 /* ══════════════════════════════════════
    HERO STEP — "BOOM" ENTRANCE
 ══════════════════════════════════════ */
@@ -348,28 +349,14 @@ a { text-decoration: none; }
     transform: scale(1.12) translateY(-4px);
     filter: blur(0);
   }
-  75% {
-    transform: scale(0.96);
-  }
-  90% {
-    transform: scale(1.02);
-  }
+  75% { transform: scale(0.96); }
+  90% { transform: scale(1.02); }
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
-/* shockwave ring that bursts outward behind the text on impact */
-.hero-step::after {
-  /* keep your existing gold underline rule — add this NEW pseudo via
-     a wrapping element instead, since ::after is already used above.
-     See markup note below. */
-}
-
-.hero-title {
-  position: relative;
-}
 .hero-title::before {
   content: "";
   position: absolute;
@@ -392,9 +379,7 @@ a { text-decoration: none; }
     opacity: 0.9;
     border-width: 4px;
   }
-  70% {
-    opacity: 0;
-  }
+  70% { opacity: 0; }
   100% {
     transform: translate(-50%, -50%) scale(6);
     opacity: 0;
@@ -429,6 +414,7 @@ a { text-decoration: none; }
     transform: none !important;
   }
 }
+
 .hero-step {
   position: relative;
   display: block;
@@ -437,11 +423,7 @@ a { text-decoration: none; }
   font-weight: 700;
   line-height: 0.88;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #ffffff 45%, var(--gold-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  padding-bottom: 22px; /* room for the accent line below */
+  padding-bottom: 20px; /* room for the accent line below */
 }
 
 .hero-step::after {
@@ -450,8 +432,8 @@ a { text-decoration: none; }
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 72px;
-  height: 2px;
+  width: 60px;
+  height: 1.5px;
   background: linear-gradient(90deg,
       transparent,
       var(--gold-light) 25%,
@@ -472,11 +454,44 @@ a { text-decoration: none; }
   pointer-events: none;
 }
 
+/* ── Each letter carries its own gradient fill (background-clip:text
+   does NOT inherit to children, so this must live on the letter itself) ── */
+.step-letter {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 45%, var(--gold-light) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* ── Per-letter hover wave on STEP ── */
+.hero-step:hover .step-letter:nth-child(1) { transform: translateY(-10px) scale(1.08); transition-delay: 0s;    filter: drop-shadow(0 4px 10px rgba(212,175,55,0.6)); }
+.hero-step:hover .step-letter:nth-child(2) { transform: translateY(-10px) scale(1.08); transition-delay: 0.05s; filter: drop-shadow(0 4px 10px rgba(212,175,55,0.6)); }
+.hero-step:hover .step-letter:nth-child(3) { transform: translateY(-10px) scale(1.08); transition-delay: 0.10s; filter: drop-shadow(0 4px 10px rgba(212,175,55,0.6)); }
+.hero-step:hover .step-letter:nth-child(4) { transform: translateY(-10px) scale(1.08); transition-delay: 0.15s; filter: drop-shadow(0 4px 10px rgba(212,175,55,0.6)); }
+
+/* ── Hovering STEP grows the tagline + school name below ── */
+.hero-tagline,
+.hero-school {
+  display: inline-block;
+  transition: transform 0.35s ease, letter-spacing 0.35s ease;
+}
+.hero-title:hover .hero-tagline {
+  transform: scale(1.12);
+  letter-spacing: 0.02em;
+}
+.hero-title:hover + .hero-school {
+  transform: scale(1.15);
+  letter-spacing: 0.34em;
+}
+
 .hero-tagline {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
-  font-weight: 400;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-weight: 700;
   font-style: italic;
   color: rgba(255,255,255,0.68);
   margin-top: 10px;
@@ -485,8 +500,8 @@ a { text-decoration: none; }
 }
 
 .hero-school {
-  font-size: 0.65rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold-light);
@@ -526,11 +541,6 @@ a { text-decoration: none; }
 
 /* ══════════════════════════════════════
    SCROLL REVEAL (shared utility)
-   NOTE: default state stays VISIBLE.
-   JS only ADDS the hidden state via
-   .reveal-init — so if JS/observer
-   never fires (mobile bug scenario),
-   content is never stuck invisible.
 ══════════════════════════════════════ */
 .reveal.reveal-init {
   opacity: 0;
@@ -562,9 +572,6 @@ a { text-decoration: none; }
 .reveal-stagger.reveal-visible > *:nth-child(5) { transition-delay: 0.3s; }
 .reveal-stagger.reveal-visible > *:nth-child(6) { transition-delay: 0.4s; }
 
-/* Extra safety net: on small mobile screens, skip the reveal
-   animation entirely so content can never get stuck hidden
-   because of a scroll/IntersectionObserver bug on that device. */
 @media (max-width: 768px) {
   .reveal,
   .reveal-stagger > * {
@@ -602,21 +609,18 @@ a { text-decoration: none; }
     height: auto;
     min-height: 0;
     max-height: none;
-    aspect-ratio: 16 / 10;   /* adjust to your actual banner's ratio */
-    background: var(--dark); /* fills any letterbox space around the image */
+    aspect-ratio: 16 / 10;
+    background: var(--dark);
   }
   .hero-media img {
-    position: static;        /* let the image define the container's height */
+    position: static;
     width: 100%;
     height: 100%;
-    object-fit: contain;     /* shows the FULL image, nothing cropped */
+    object-fit: contain;
     object-position: center;
   }
   .hero-content {
-    margin-top: 0;            /* remove the negative overlap — it was designed
-                                  around a cropped/cover image, and with the
-                                  full image now visible it would overlap content
-                                  onto the picture */
+    margin-top: 0;
     padding: 28px 20px 48px;
   }
   .hero-step { padding-bottom: 16px; }
@@ -633,7 +637,6 @@ a { text-decoration: none; }
   .hero-media { height: 38vh; min-height: 260px; }
   .hero-content { margin-top: -40px; padding: 24px 16px 44px; }
 }
-
 /* ══════════════════════════════════════
    WHY FINISHING SCHOOL
 ══════════════════════════════════════ */
