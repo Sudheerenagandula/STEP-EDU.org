@@ -316,6 +316,106 @@ a { text-decoration: none; }
   margin-bottom: 14px;
    position: relative;
 }
+/* ══════════════════════════════════════
+   HERO STEP — "BOOM" ENTRANCE
+══════════════════════════════════════ */
+.hero-step {
+  animation: heroStepBoom 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.25s;
+}
+
+@keyframes heroStepBoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.35) translateY(30px);
+    filter: blur(10px);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.12) translateY(-4px);
+    filter: blur(0);
+  }
+  75% {
+    transform: scale(0.96);
+  }
+  90% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* shockwave ring that bursts outward behind the text on impact */
+.hero-step::after {
+  /* keep your existing gold underline rule — add this NEW pseudo via
+     a wrapping element instead, since ::after is already used above.
+     See markup note below. */
+}
+
+.hero-title {
+  position: relative;
+}
+.hero-title::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  animation: heroBoomRing 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.25s;
+}
+
+@keyframes heroBoomRing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.9;
+    border-width: 4px;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(6);
+    opacity: 0;
+    border-width: 0.5px;
+  }
+}
+
+/* let the rest of the hero content fade in normally right after the boom */
+.hero-badge      { animation: heroFadeUp 0.6s ease-out 0.05s both; }
+.hero-tagline    { animation: heroFadeUp 0.6s ease-out 0.75s both; }
+.hero-school,
+.hero-divider,
+.hero-mission,
+.hero-actions    { animation: heroFadeUp 0.6s ease-out 0.85s both; }
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-step,
+  .hero-title::before,
+  .hero-badge,
+  .hero-tagline,
+  .hero-school,
+  .hero-divider,
+  .hero-mission,
+  .hero-actions {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 .hero-step {
   position: relative;
   display: block;
