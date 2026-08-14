@@ -120,28 +120,31 @@ export class Dashboard implements AfterViewInit {
      Uses the .reveal / .reveal-visible / .reveal-stagger
      CSS already defined at the bottom of dashboard.css.
   ══════════════════════════════════════ */
-  private initScrollReveal(): void {
-    const targets: NodeListOf<HTMLElement> =
-      this.el.nativeElement.querySelectorAll('.reveal, .reveal-stagger');
+ private initScrollReveal(): void {
+  const targets: NodeListOf<HTMLElement> =
+    this.el.nativeElement.querySelectorAll('.reveal, .reveal-stagger');
 
-    if (!targets.length) return;
+  if (!targets.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-            // Reveal once, then stop watching this element
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.15,       // trigger when ~15% of the element is visible
-        rootMargin: '0px 0px -60px 0px' // reveal slightly before it's fully in view
-      }
-    );
+  // Hide elements up front so the CSS transition has something to
+  // animate from. Without this, .reveal-visible has nothing to
+  // override — everything just renders in place with no effect.
+  targets.forEach(el => el.classList.add('reveal-init'));
 
-    targets.forEach(el => observer.observe(el));
-  }
-}
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: '0px 0px -60px 0px'
+    }
+  );
+
+  targets.forEach(el => observer.observe(el));
+}}
