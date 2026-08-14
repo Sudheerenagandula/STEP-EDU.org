@@ -27,6 +27,19 @@
   --shadow:        0 6px 28px rgba(0,0,0,0.10);
   --shadow-lg:     0 16px 56px rgba(0,0,0,0.16);
   --shadow-xl:     0 24px 80px rgba(0,0,0,0.22);
+
+   --lav-1: #eae6f7;
+  --lav-2: #f4f1fb;
+  --lav-3: #ffffff;
+  --ink: #17171f;
+  --slate: #565668;
+  --indigo: #463df0;
+  --indigo-dark: #3630c9;
+  --gold: #c9a53b;
+  --green: #1f7a45;
+
+  display: block;
+  font-family: 'Inter', sans-serif;
 }
 
 /* ══════════════════════════════════════
