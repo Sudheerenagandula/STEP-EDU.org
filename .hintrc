@@ -22,7 +22,8 @@
       {
         "ignore": [
           "backdrop-filter",
-          "user-select"
+          "user-select",
+          "-webkit-text-size-adjust"
         ]
       }
     ]
