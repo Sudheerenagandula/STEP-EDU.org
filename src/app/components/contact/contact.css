@@ -1,4 +1,40 @@
 /* ══════════════════════════════════════
+   CONTACT SECTION — HEADER BLOCK
+══════════════════════════════════════ */
+.contact-section .section-header {
+  margin-bottom: 60px;
+  max-width: 640px;
+}
+
+.contact-section .section-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 14px;
+}
+
+.contact-section .section-header h1,
+.contact-section .section-header h2 {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.contact-section .section-header p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+/* ══════════════════════════════════════
    CONTACT SECTION — PREMIUM STYLE
 ══════════════════════════════════════ */
 .contact-section {
@@ -52,6 +88,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .contact-icon i {
@@ -63,6 +100,7 @@
   display: block;
   font-size: 0.9rem;
   color: var(--ink);
+  margin-bottom: 2px;
 }
 
 .contact-item span,
@@ -81,6 +119,7 @@
   font-weight: 600;
   color: var(--ink-soft);
   margin-bottom: 6px;
+  display: block;
 }
 
 .contact-form-card .form-control,
@@ -90,12 +129,14 @@
   padding: 12px 14px;
   font-size: 0.85rem;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
 }
 
 .contact-form-card .form-control:focus,
 .contact-form-card .form-select:focus {
   border-color: var(--green-mid);
   box-shadow: 0 0 0 3px rgba(22,163,74,0.15);
+  outline: none;
 }
 
 .location-list {
@@ -106,8 +147,8 @@
 
 .location-entry {
   padding: 10px 12px;
-  border-left: 3px solid var(--primary-color, #0d6efd);
-  background: rgba(13, 110, 253, 0.04);
+  border-left: 3px solid var(--green-mid, #16a34a);
+  background: rgba(22,163,74,0.04);
   border-radius: 0 6px 6px 0;
 }
 
@@ -124,5 +165,5 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: var(--primary-color, #0d6efd);
+  color: var(--green-mid, #16a34a);
 }
