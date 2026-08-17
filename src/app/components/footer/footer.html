@@ -1,87 +1,88 @@
-<footer class="pt-5 pb-3 mt-5" style="background-color: #1a1a2e;">
+<footer class="pt-4 pb-4 mt-5">
   <div class="container">
 
-    <div class="row g-4 mb-4">
+    <!-- Dark rounded card -->
+    <div class="footer-card p-4 p-md-5">
+      <div class="row g-4 align-items-start">
 
-      <!-- Brand -->
-      <div class="col-lg-4 col-md-6">
-        <a routerLink="/" style="text-decoration:none; display:inline-block;">
-          <div style="width: 100px; height: 100px; border-radius: 10px; overflow: visible; background: #fff; display: flex; align-items: center; justify-content: center; padding: 6px; margin-bottom: 12px;">
-            <img
-              src="/Logo-1.png"
-              alt="STEP Logo"
-              style="width: 100%; height: 100%; object-fit: contain; display: block;"
-              onerror="this.style.display='none'"
-            />
+        <!-- Brand + Social -->
+        <div class="col-lg-4 col-md-5">
+          <a routerLink="/" style="text-decoration:none; display:inline-block;">
+            <div style="width: 70px; height: 70px; border-radius: 10px; overflow: visible; background: #fff; display: flex; align-items: center; justify-content: center; padding: 6px; margin-bottom: 14px;">
+              <img
+                src="/Logo-1.png"
+                alt="STEP Logo"
+                style="width: 150%; height: 100%; object-fit: contain; display: block;"
+                onerror="this.style.display='none'"
+              />
+
+            </div>
+          </a>
+
+          <h5 class="fw-bold mb-1" style="color:#ffffff; letter-spacing: 1px;">STEP</h5>
+          <p class="mb-3" style="color:#adb5bd; font-size: 0.9rem;">
+
+          The Finishing School — bridging the gap between education and employment through long-term, individual-focused career coaching.
+          </p>
+
+          <div class="d-flex gap-2">
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
           </div>
-        </a>
-        <p style="color:#adb5bd;">
-          <span style="color:#ffffff; font-weight:600;">Success Through Empowering Personality</span><br>
-          The Finishing School — bridging the gap between education and employment
-          through long-term, individual-focused career coaching.
-        </p>
-      </div>
+        </div>
 
-      <!-- Quick Links -->
-      <div class="col-lg-2 col-md-6">
-        <h5 class="fw-bold mb-3" style="color:#ffffff;">Quick Links</h5>
-        <ul class="list-unstyled mb-0">
-          <li class="mb-2">
-            <a routerLink="/" style="color:#adb5bd; text-decoration:none;">
-              <i class="fas fa-chevron-right me-2" style="color:#c8a96e; font-size:11px;"></i>Home
-            </a>
-          </li>
-          <li class="mb-2">
-            <a routerLink="/about" style="color:#adb5bd; text-decoration:none;">
-              <i class="fas fa-chevron-right me-2" style="color:#c8a96e; font-size:11px;"></i>About
-            </a>
-          </li>
-          <li class="mb-2">
-            <a routerLink="/courses" style="color:#adb5bd; text-decoration:none;">
-              <i class="fas fa-chevron-right me-2" style="color:#c8a96e; font-size:11px;"></i>Courses
-            </a>
-          </li>
-          <li class="mb-2">
-            <a routerLink="/testimonials" style="color:#adb5bd; text-decoration:none;">
-              <i class="fas fa-chevron-right me-2" style="color:#c8a96e; font-size:11px;"></i>Testimonials
-            </a>
-          </li>
-          <li class="mb-2">
-            <a routerLink="/contact" style="color:#adb5bd; text-decoration:none;">
-              <i class="fas fa-chevron-right me-2" style="color:#c8a96e; font-size:11px;"></i>Contact
-            </a>
-          </li>
-        </ul>
-      </div>
+        <!-- "Our Offices"-style card(s) -->
+        <div class="col-lg-8 col-md-7">
+          <p class="mb-3" style="color:#adb5bd; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
+            Reach Us
+          </p>
 
-      <!-- Contact Info -->
-      <div class="col-lg-3 col-md-6">
-        <h5 class="fw-bold mb-3" style="color:#ffffff;">Contact Us</h5>
-        <ul class="list-unstyled mb-0">
-          <li class="mb-3">
-            <i class="fas fa-phone me-2" style="color:#c8a96e;"></i>
-            <a href="tel:+917993969196" style="color:#adb5bd; text-decoration:none;">+91 7993969196</a>
-          </li>
-          <li class="mb-3">
-            <i class="fas fa-envelope me-2" style="color:#c8a96e;"></i>
-            <a href="mailto:info@step-edu.org" style="color:#adb5bd; text-decoration:none;">info@step-edu.org</a>
-          </li>
-          <li>
-            <i class="fas fa-map-marker-alt me-2" style="color:#c8a96e;"></i>
-            <span style="color:#adb5bd;">Hyderabad, Telangana, India</span>
-          </li>
-        </ul>
-      </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="office-box h-100">
+                <h6 class="fw-bold mb-2" style="color:#ffffff;">Hyderabad, India</h6>
+                <p class="mb-3" style="color:#adb5bd; font-size: 0.9rem;">
+                  Hyderabad, Telangana, India
+                </p>
+                <div class="d-flex gap-2">
+                  <a href="tel:+917993969196" class="icon-btn" aria-label="Call"><i class="fas fa-phone"></i></a>
+                  <a href="mailto:info@step-edu.org" class="icon-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
 
+            <div class="col-md-6">
+              <div class="office-box h-100">
+                <h6 class="fw-bold mb-2" style="color:#ffffff;">Quick Links</h6>
+                <ul class="list-unstyled mb-0" style="font-size: 0.9rem;">
+                  <li class="mb-2"><a routerLink="/" class="footer-link">Home</a></li>
+                  <li class="mb-2"><a routerLink="/about" class="footer-link">About</a></li>
+                  <li class="mb-2"><a routerLink="/courses" class="footer-link">Courses</a></li>
+                  <li class="mb-2"><a routerLink="/testimonials" class="footer-link">Testimonials</a></li>
+                  <li><a routerLink="/contact" class="footer-link">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <hr style="border-color:#444;">
-
-    <div class="row align-items-center justify-content-center">
-      <div class="text-center">
-        <p class="mb-0 small" style="color:#adb5bd;">
-          &copy; 2020 STEP - The Finishing School. All rights reserved.
-        </p>
+    <!-- Bottom bar -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 px-2">
+      <p class="mb-2 mb-md-0 small" style="color:#6c757d;">
+        Copyright &copy; 2020-2026 by STEP - The Finishing School
+      </p>
+      <div class="small">
+        <a routerLink="/terms" class="bottom-link">Terms &amp; Conditions</a>
+        <span style="color:#6c757d;"> | </span>
+        <a routerLink="/privacy" class="bottom-link">Privacy Policy</a>
+        <span style="color:#6c757d;"> | </span>
+        <a routerLink="/sitemap" class="bottom-link">Sitemap</a>
       </div>
     </div>
 

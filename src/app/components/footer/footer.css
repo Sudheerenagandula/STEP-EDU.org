@@ -1,0 +1,60 @@
+.footer-card {
+  background-color: #14141f;
+  border-radius: 20px;
+}
+
+.office-box {
+  background-color: #1f1f2e;
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: #1f1f2e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+.social-icon:hover {
+  background-color: #2e2e45;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #2a2a3a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+.icon-btn:hover {
+  background-color: #3a3a55;
+  color: #c8a96e;
+}
+
+.footer-link {
+  color: #adb5bd;
+  text-decoration: none;
+}
+.footer-link:hover {
+  color: #c8a96e;
+}
+
+.bottom-link {
+  color: #adb5bd;
+  text-decoration: none;
+}
+.bottom-link:hover {
+  color: #c8a96e;
+}

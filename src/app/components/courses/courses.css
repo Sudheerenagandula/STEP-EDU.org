@@ -316,15 +316,15 @@
   padding: 10px 22px;
   font-weight: 600;
   font-size: 0.92rem;
-  color: var(--green);
+  color: #0c0b0b;
   box-shadow: 0 2px 12px rgba(26,122,74,0.08);
   transition: all 0.25s ease;
   cursor: default;
 }
 .location-badge:hover {
-  background: var(--green);
+  background: var(--bs-white);
   color: #0c0b0b;
-  border-color: var(--green);
+  border-color: var(--bs-white);
   transform: translateY(-3px);
   box-shadow: 0 8px 22px rgba(26,122,74,0.25);
 }

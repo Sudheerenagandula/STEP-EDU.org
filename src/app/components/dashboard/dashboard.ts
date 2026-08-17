@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, Inject, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -7,13 +7,11 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink, CommonModule],
   templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css',
-  encapsulation: ViewEncapsulation.None
-  // NOTE: kept None — dashboard.css defines :root CSS variables
-  // (--dark, --gold-light, --green, etc.) that must apply globally.
-  // Emulated encapsulation rewrites ":root" to ":root[_ngcontent-xyz]",
-  // which matches nothing, silently undefining every variable.
-  // Only remove this once the :root block is moved to src/styles.css.
+  styleUrl: './dashboard.css'
+  // encapsulation left as default (Emulated) now that :root variables
+  // and the global reset live in styles.css. This means everything in
+  // dashboard.css is automatically scoped to this component only and
+  // can no longer leak into the footer or any other page/component.
 })
 export class Dashboard implements AfterViewInit {
 
@@ -115,36 +113,30 @@ export class Dashboard implements AfterViewInit {
 
   /* ══════════════════════════════════════
      SCROLL REVEAL
-     Fades/slides in any element with class="reveal" or
-     class="reveal-stagger" as it enters the viewport.
-     Uses the .reveal / .reveal-visible / .reveal-stagger
-     CSS already defined at the bottom of dashboard.css.
   ══════════════════════════════════════ */
- private initScrollReveal(): void {
-  const targets: NodeListOf<HTMLElement> =
-    this.el.nativeElement.querySelectorAll('.reveal, .reveal-stagger');
+  private initScrollReveal(): void {
+    const targets: NodeListOf<HTMLElement> =
+      this.el.nativeElement.querySelectorAll('.reveal, .reveal-stagger');
 
-  if (!targets.length) return;
+    if (!targets.length) return;
 
-  // Hide elements up front so the CSS transition has something to
-  // animate from. Without this, .reveal-visible has nothing to
-  // override — everything just renders in place with no effect.
-  targets.forEach(el => el.classList.add('reveal-init'));
+    targets.forEach(el => el.classList.add('reveal-init'));
 
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-      rootMargin: '0px 0px -60px 0px'
-    }
-  );
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -60px 0px'
+      }
+    );
 
-  targets.forEach(el => observer.observe(el));
-}}
+    targets.forEach(el => observer.observe(el));
+  }
+}
