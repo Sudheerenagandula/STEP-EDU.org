@@ -443,6 +443,25 @@
 }
 .about-philosophy-header h3 em { font-style: italic; color: var(--green, #166534); }
 .about-philosophy-header p { font-size: 0.93rem; color: var(--ink-muted, #777); line-height: 1.7; }
+
+/* Label pill — self-contained so it's guaranteed visible on the dark
+   road-image background, regardless of whether the global .section-label
+   styles reach this component's scope */
+.about-philosophy-header .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(34,197,94,0.14);
+  border: 1px solid rgba(74,222,128,0.3);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
 .philosophy-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -555,6 +574,21 @@
   margin: 8px 0 12px; line-height: 1.2;
 }
 .about-why-header p { font-size: 0.88rem; color: rgba(255,255,255,0.45); max-width: 480px; margin: 0 auto; }
+.about-why-header .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(34,197,94,0.14);
+  border: 1px solid rgba(74,222,128,0.3);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
 .about-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .about-why-card {
   background: rgba(255,255,255,0.04);
@@ -786,6 +820,21 @@
   font-weight: 700; color: #fff; margin: 8px 0 12px;
 }
 .about-pedagogy-header p { font-size: 0.88rem; color: rgba(255,255,255,0.45); max-width: 520px; margin: 0 auto; }
+.about-pedagogy-header .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(34,197,94,0.14);
+  border: 1px solid rgba(74,222,128,0.3);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
 .pedagogy-grid {
   display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 16px; position: relative; z-index: 1;
