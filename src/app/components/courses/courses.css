@@ -1,10 +1,25 @@
-/* Section Background */
+:root {
+  --green: #1a7a4a;
+  --green-light: #2ecc71;
+  --green-pale: #e8f7ef;
+  --gold: #c9a84c;
+  --dark: #111;
+  --muted: #6b7280;
+  --card-shadow: 0 4px 24px rgba(26,122,74,0.10);
+}
+
+/* Section Background (single, deduplicated declaration) */
 .courses-section {
+  font-family: 'DM Sans', sans-serif;
   background: linear-gradient(to bottom, #f8f9fa, #ffffff);
   padding: 80px 0;
 }
 
-/* Section Headings */
+.courses-section h2, .courses-section h3, .courses-section h4, .courses-section h5 {
+  font-family: 'Playfair Display', serif;
+  color: var(--dark);
+}
+
 .courses-section h2 {
   font-size: 2.2rem;
   letter-spacing: 0.5px;
@@ -15,12 +30,249 @@
   margin-top: 40px;
 }
 
-/* Cards Styling */
-.courses-section .card {
-  border-radius: 15px;
-  transition: all 0.3s ease-in-out;
+/* ── Pricing Section ── */
+.pricing-section {
+  background: linear-gradient(135deg, #0f3d25 0%, #1a7a4a 55%, #145c37 100%);
+  border-radius: 28px;
+  padding: 64px 48px;
+  margin-bottom: 64px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(15, 61, 37, 0.25);
+}
+.pricing-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+}
+.pricing-section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -60px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.10), transparent 70%);
 }
 
+.pricing-section h3 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 2rem;
+  position: relative;
+  z-index: 1;
+}
+.pricing-section .pricing-subtitle {
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  margin-bottom: 48px;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.price-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 18px;
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), background 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(8px);
+  min-height: 260px;
+}
+.price-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.13);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.price-card.featured {
+  background: linear-gradient(160deg, var(--gold), #b8962e);
+  border-color: var(--gold);
+  position: relative;
+  box-shadow: 0 20px 45px rgba(201,168,76,0.35);
+  transform: scale(1.03);
+}
+.price-card.featured:hover {
+  transform: scale(1.03) translateY(-6px);
+}
+.price-card.featured .price-duration,
+.price-card.featured .price-amount,
+.price-card.featured .price-perks li {
+  color: #fff !important;
+}
+.price-card.featured .price-badge-tag {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+}
+.price-card.featured .price-perks li i {
+  color: #fff;
+}
+
+.featured-label {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.price-duration {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+.price-amount {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.price-amount .currency {
+  font-size: 1.2rem;
+  vertical-align: top;
+  margin-right: 2px;
+  opacity: 0.85;
+}
+.price-amount sup {
+  font-size: 1rem;
+  vertical-align: top;
+  margin-top: 6px;
+}
+.price-badge-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin: 0 auto 16px;
+  width: fit-content;
+}
+.price-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.price-perks li {
+  color: rgba(255,255,255,0.82);
+  font-size: 0.82rem;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.price-perks li i {
+  color: var(--green-light);
+  font-size: 0.75rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.price-card.featured .price-perks li i {
+  color: #fff;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.85rem;
+  margin-right: 4px;
+}
+
+@media (max-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .price-card.featured {
+    grid-column: span 2;
+    transform: none;
+  }
+  .price-card.featured:hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 576px) {
+  .pricing-section {
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .price-card.featured {
+    grid-column: span 1;
+  }
+}
+
+/* ── Locations Section ── */
+.locations-section {
+  margin-bottom: 64px;
+}
+.location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1.5px solid #d1fae5;
+  border-radius: 50px;
+  padding: 10px 22px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--green);
+  box-shadow: 0 2px 12px rgba(26,122,74,0.08);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+.location-badge:hover {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(26,122,74,0.25);
+}
+.location-badge i {
+  font-size: 0.85rem;
+}
+
+/* Cards Styling (Bootstrap .card, e.g. Methodology section) */
+.courses-section .card {
+  border-radius: 16px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 .courses-section .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
@@ -35,7 +287,6 @@
 .courses-section i {
   transition: transform 0.3s ease;
 }
-
 .courses-section .card:hover i {
   transform: scale(1.1);
 }
@@ -51,7 +302,6 @@
   transition: all 0.3s ease;
   border-radius: 12px;
 }
-
 .courses-section .p-3.bg-light:hover {
   background-color: #e9f7ef !important;
   transform: translateY(-5px);
@@ -59,14 +309,26 @@
 
 /* Buttons */
 .courses-section .btn-success {
+  background: var(--green);
+  border-color: var(--green);
+  font-weight: 600;
+  letter-spacing: 0.5px;
   border-radius: 30px;
   padding: 8px 25px;
   transition: all 0.3s ease;
 }
-
 .courses-section .btn-success:hover {
   background-color: #146c43;
+  border-color: #145c37;
   transform: scale(1.05);
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--green-light));
+  border-radius: 4px;
+  margin: 12px auto 0;
 }
 
 /* Closing Section */
@@ -81,14 +343,10 @@
   .courses-section {
     padding: 50px 0;
   }
-
   .courses-section h2 {
     font-size: 1.8rem;
   }
-
   .courses-section h3 {
     font-size: 1.4rem;
   }
-
 }
-
