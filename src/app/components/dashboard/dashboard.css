@@ -1049,36 +1049,40 @@ a { text-decoration: none; }
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 80px; align-items: center;
 }
-.transformation-text .section-label { margin-bottom: 16px; }
+.transformation-text .section-label { margin-bottom: 18px; font-size: 0.78rem; padding: 6px 16px; }
 .transformation-text h2 {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-size: clamp(2.8rem, 5vw, 4rem);   /* was clamp(2.2rem, 4vw, 3rem) */
   font-weight: 700;
   color: #fff;
-  line-height: 1.12;
-  margin-bottom: 20px;
+  line-height: 1.1;
+  margin-bottom: 26px;
 }
 .transformation-text h2 em { font-style: italic; color: var(--green-bright); }
-.transformation-text > p { font-size: 0.9rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 18px; }
+.transformation-text > p { font-size: 1.08rem; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 22px; } /* was 0.9rem */
 .transformation-text > p strong { color: #ffffff; font-weight: 700; }
 .transformation-quote {
   border-left: 3px solid var(--green-mid);
-  padding: 16px 20px;
-  margin: 28px 0 32px;
+  padding: 22px 26px;
+  margin: 32px 0 36px;
   background: rgba(34,197,94,0.06);
   border-radius: 0 10px 10px 0;
 }
 .transformation-quote p {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.35rem;   /* was 1.1rem */
   font-style: italic;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.65;
+}
+.transformation-text .btn-primary {
+  font-size: 1rem;
+  padding: 16px 34px;
 }
 .t-steps { display: flex; flex-direction: column; }
 .t-step {
-  display: flex; gap: 22px;
-  padding: 22px 0;
+  display: flex; gap: 26px;
+  padding: 28px 0;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   transition: padding-left 0.28s ease;
 }
@@ -1086,20 +1090,19 @@ a { text-decoration: none; }
 .t-step:hover { padding-left: 8px; }
 .t-step-num {
   font-family: var(--font-display);
-  font-size: 1.9rem;
+  font-size: 2.4rem;   /* was 1.9rem */
   font-weight: 700;
   color: rgba(34,197,94,0.22);
   line-height: 1;
   flex-shrink: 0;
-  width: 34px;
+  width: 44px;
   padding-top: 3px;
   transition: color 0.3s;
 }
 .t-step:hover .t-step-num { color: rgba(34,197,94,0.55); }
-.t-step h5 { font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-.t-step p { font-size: 0.81rem; color: rgba(255,255,255,0.68); line-height: 1.65; }
+.t-step h5 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 8px; } /* was 0.92rem */
+.t-step p { font-size: 0.96rem; color: rgba(255,255,255,0.72); line-height: 1.7; } /* was 0.81rem */
 .t-step p strong { color: #ffffff; font-weight: 700; }
-
 /* ══════════════════════════════════════
    CAREER WARNING STRIP
 ══════════════════════════════════════ */
