@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Inject, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, PLATFORM_ID, ViewEncapsulation, ElementRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -15,11 +15,20 @@ export class NavbarComponent implements OnInit {
   isScrolled = false;
   menuOpen = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private elRef: ElementRef
+  ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.isScrolled = window.scrollY > 20;
+      // push page content down by the navbar's real height, since
+      // fixed positioning takes it out of normal document flow
+      setTimeout(() => {
+        const navHeight = this.elRef.nativeElement.querySelector('.nav-shell')?.offsetHeight || 72;
+        document.body.style.paddingTop = navHeight + 'px';
+      });
     }
   }
 

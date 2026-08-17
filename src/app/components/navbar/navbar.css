@@ -4,9 +4,12 @@
    SHELL
 ══════════════════════════════════ */
 .nav-shell {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  width: 100%;
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -21,17 +24,12 @@
   border-bottom-color: rgba(184, 150, 46, 0.25);
 }
 
-/* Top gold accent line */
 .nav-accent-line {
   height: 2px;
   background: linear-gradient(90deg, transparent 0%, #b8962e 30%, #d4af5a 50%, #b8962e 70%, transparent 100%);
   opacity: 0.8;
 }
 
-/* Full-bleed edge-to-edge bar: the nav's own container ignores the
-   site's 1200px content max-width so the brand truly hugs the left
-   edge of the screen and the links/CTA truly hug the right edge,
-   with just breathing-room padding that scales with viewport width. */
 .nav-shell .container {
   max-width: 100%;
   width: 100%;
@@ -63,7 +61,6 @@
   min-width: 0;
 }
 
-/* ── Brand icon wrapper ── */
 .nav-brand-icon {
   width: 56px;
   height: 56px;
@@ -84,7 +81,6 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* ── Logo image ── */
 .nav-brand-img {
   width: 56px;
   height: 56px;
@@ -98,14 +94,12 @@
   transform: scale(1.05);
 }
 
-/* Fallback icon */
 .nav-brand-icon i {
   font-size: 1.55rem;
   color: #b8962e;
   line-height: 1;
 }
 
-/* ── Brand text ── */
 .nav-brand-text {
   display: flex;
   align-items: center;
@@ -425,41 +419,4 @@
     font-size: 1.15rem;
     letter-spacing: 0.08em;
   }
-}
-
-
-/* ══════════════════════════════════════
-   RESET & BASE
-══════════════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  scroll-behavior: smooth;
-  overflow-x: clip; /* FIX: clip instead of hidden — preserves position:sticky */
-}
-
-body {
-  font-family: var(--font-body);
-  color: var(--ink);
-  background: var(--surface);
-  overflow-x: clip;    /* FIX: clip instead of hidden */
-  -webkit-font-smoothing: antialiased;
-  max-width: 100vw;
-  position: relative;
-}
-
-img { display: block; max-width: 100%; }  /* FIX: was max-width: 200% — that was a bug too */
-a { text-decoration: none; }
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
-  box-sizing: border-box;
-}
-
-.hero-glow {
-  width: 900px; height: 900px;
-  top: -300px; left: -300px;
 }

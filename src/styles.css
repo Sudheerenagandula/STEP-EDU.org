@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+/* Ensure nothing at the root level breaks position:sticky */
+html, body {
+  overflow-x: clip;
+  overflow-y: visible;
+  height: auto;
+  min-height: 100%;
+}
+
+app-root {
+  display: block;
+  overflow: visible;
+}
