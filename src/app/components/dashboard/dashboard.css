@@ -50,6 +50,8 @@
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
+  overflow-x: hidden; /* fallback: overflow-x:clip has patchy support on older iOS Safari */
+  width: 100%;
 }
 
 body {
@@ -57,12 +59,14 @@ body {
   color: var(--ink);
   background: var(--surface);
   overflow-x: clip;
+  overflow-x: hidden; /* fallback for iOS Safari */
   -webkit-font-smoothing: antialiased;
   max-width: 100vw;
+  width: 100%;
   position: relative;
 }
 
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 a { text-decoration: none; }
 
 .container {
@@ -658,6 +662,7 @@ a { text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px;
+  width: 100%;
 }
 
 .why-card {
@@ -1349,4 +1354,78 @@ a { text-decoration: none; }
   .hero-actions { gap: 10px; }
   .stat-value { flex-wrap: wrap; justify-content: center; }
   .learn-card { padding: 14px 12px; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HARDENED MOBILE SAFETY NET
+   Everything below is new. It re-declares the key multi-column
+   grids with higher specificity + !important so they are
+   guaranteed to collapse on small screens even if some other
+   stylesheet, inline style, or Angular component-scoped CSS
+   elsewhere in the app happens to override the rules above
+   (this is almost certainly why the "Why a Finishing School?"
+   cards were still showing 3-across on the 440px screenshot —
+   the plain .why-grid { grid-template-columns: 1fr } rule was
+   losing to something with equal/higher specificity loaded
+   later in the cascade).
+══════════════════════════════════════════════════════════════ */
+
+/* ≤900px: tablet/large-phone — collapse every multi-column grid to 1 or 2 cols */
+@media (max-width: 900px) {
+  .why-section .why-grid,
+  .value-section .value-layout,
+  .transformation-section .transformation-layout,
+  .scope-section .scope-layout,
+  .invest-section .invest-cards {
+    grid-template-columns: 1fr !important;
+  }
+  .stats-section .stats-grid,
+  .invest-section .income-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .value-section .learn-grid,
+  .scope-section .scope-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ≤640px: phones — force everything fully single-column */
+@media (max-width: 640px) {
+  .why-section .why-grid,
+  .value-section .value-layout,
+  .value-section .learn-grid,
+  .transformation-section .transformation-layout,
+  .scope-section .scope-layout,
+  .scope-section .scope-cards,
+  .invest-section .invest-cards,
+  .invest-section .income-grid,
+  .stats-section .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Belt-and-braces: stop any grid/flex child from forcing horizontal
+   overflow on narrow screens, regardless of which breakpoint fired */
+@media (max-width: 900px) {
+  .why-grid > *,
+  .value-layout > *,
+  .transformation-layout > *,
+  .scope-layout > *,
+  .invest-cards > *,
+  .stats-grid > *,
+  .income-grid > *,
+  .learn-grid > *,
+  .scope-cards > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Prevent any fixed/oversized element from creating horizontal scroll */
+@media (max-width: 900px) {
+  section, .container, .why-section, .value-section, .stats-section,
+  .transformation-section, .scope-section, .invest-section, .cta-section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 }
