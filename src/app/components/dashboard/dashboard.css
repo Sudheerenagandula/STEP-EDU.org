@@ -358,6 +358,20 @@
   width: 100%;
 }
 
+.challenge-subtext {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .challenge-subtext {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+}
 .why-section .container {
   max-width: 1320px;
   margin: 0 auto;
