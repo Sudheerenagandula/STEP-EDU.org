@@ -15,6 +15,10 @@ export class NavbarComponent implements OnInit {
   isScrolled = false;
   menuOpen = false;
 
+  highlightWidth = 0;
+  highlightX = 0;
+  highlightOpacity = 0;
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private elRef: ElementRef
@@ -23,10 +27,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.isScrolled = window.scrollY > 20;
-      // push page content down by the navbar's real height, since
-      // fixed positioning takes it out of normal document flow
       setTimeout(() => {
-        const navHeight = this.elRef.nativeElement.querySelector('.nav-shell')?.offsetHeight || 72;
+        const navHeight = this.elRef.nativeElement.querySelector('.nav-shell')?.offsetHeight || 84;
         document.body.style.paddingTop = navHeight + 'px';
       });
     }
@@ -45,5 +47,16 @@ export class NavbarComponent implements OnInit {
 
   closeMenu(): void {
     this.menuOpen = false;
+  }
+
+  onLinkHover(event: MouseEvent): void {
+    const target = event.currentTarget as HTMLElement;
+    this.highlightWidth = target.offsetWidth;
+    this.highlightX = target.offsetLeft;
+    this.highlightOpacity = 1;
+  }
+
+  resetHighlight(): void {
+    this.highlightOpacity = 0;
   }
 }
