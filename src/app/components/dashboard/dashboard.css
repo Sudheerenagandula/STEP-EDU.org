@@ -319,30 +319,12 @@
 /* ══════════════════════════════════════
    HERO — RESPONSIVE
 ══════════════════════════════════════ */
+/* ══════════════════════════════════════
+   HERO — RESPONSIVE
+══════════════════════════════════════ */
 @media (max-width: 600px) {
-  .hero-media {
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    aspect-ratio: 16 / 10;
-    background: var(--dark);
-  }
-  .hero-media img {
-    position: static;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-  }
   .hero-content-image-wrap {
     padding: 28px 0px;
-  }
-}
-
-@media (max-width: 400px) {
-  .hero-media {
-    height: 38vh;
-    min-height: 260px;
   }
 }
 /* ══════════════════════════════════════
