@@ -166,20 +166,17 @@
 .hero-media {
   position: relative;
   width: 100%;
-  height: 115vh;
-  min-height: 560px;
-  max-height: 900px;
   overflow: hidden;
+  background: var(--dark);
+  /* no fixed height, no min/max-height — the image now defines the height */
 }
 
 .hero-media img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
   display: block;
+  width: 100%;
+  height: auto;      /* keeps natural aspect ratio, nothing gets cropped */
+  object-fit: unset;
+  object-position: unset;
 }
 
 .hero-img-tint {
