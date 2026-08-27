@@ -287,15 +287,6 @@
 .reveal-stagger.reveal-visible > *:nth-child(5) { transition-delay: 0.3s; }
 .reveal-stagger.reveal-visible > *:nth-child(6) { transition-delay: 0.4s; }
 
-@media (max-width: 768px) {
-  .reveal,
-  .reveal-stagger > * {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-stagger > * {
@@ -316,9 +307,6 @@
   100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
 }
 
-/* ══════════════════════════════════════
-   HERO — RESPONSIVE
-══════════════════════════════════════ */
 /* ══════════════════════════════════════
    HERO — RESPONSIVE
 ══════════════════════════════════════ */
