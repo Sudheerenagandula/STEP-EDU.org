@@ -113,6 +113,25 @@ export class Dashboard implements AfterViewInit {
 
   /* ══════════════════════════════════════
      SCROLL REVEAL
+     FIX: threshold was 0.15 (area-based) with a
+     fixed -60px rootMargin. On mobile, sections
+     stack into single columns and become much
+     taller, so "15% of the element's own area"
+     is a huge pixel count — the element had to
+     be scrolled almost fully into view before
+     firing, making the animation look like it
+     snapped in late or barely moved. A fixed
+     60px margin also ate a much bigger share of
+     short phone viewports than tall desktop ones,
+     so behavior was inconsistent across devices.
+
+     Fix: threshold 0 fires as soon as any part of
+     the element enters, regardless of the
+     element's own height. A percentage-based
+     rootMargin scales with viewport height instead
+     of eating a fixed pixel amount, so the trigger
+     point is consistent whether the viewport is a
+     short phone or a tall desktop screen.
   ══════════════════════════════════════ */
   private initScrollReveal(): void {
     const targets: NodeListOf<HTMLElement> =
@@ -132,8 +151,8 @@ export class Dashboard implements AfterViewInit {
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: '0px 0px -60px 0px'
+        threshold: 0,
+        rootMargin: '0px 0px -10% 0px'
       }
     );
 
