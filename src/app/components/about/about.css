@@ -1315,3 +1315,27 @@
   .philosophy-grid { grid-template-columns: 1fr; }
   .grove-stat { padding: 14px 16px; gap: 12px; }
 }
+
+
+
+/* ── Diagram Frame variant (infographic images like ourApproach.jpeg) ── */
+.about-img-frame.diagram-frame::before,
+.about-img-frame.diagram-frame::after {
+  content: none;
+}
+
+.about-img-frame.diagram-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .about-img-frame.diagram-frame img {
+    max-height: 420px;
+  }
+}
