@@ -68,6 +68,7 @@
 }
 .section-header .section-label { margin-bottom: 16px; }
 .section-header h2 {
+    font-size: 2.5rem; /* adjust as needed */
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.5vw, 3.4rem);
   font-weight: 700;
@@ -326,14 +327,14 @@
    WHY FINISHING SCHOOL
 ══════════════════════════════════════ */
 .why-section {
-  padding: 100px 0;
+  padding: 200px 0;
   background: var(--surface);
   overflow: hidden;
   width: 100%;
 }
 
 .challenge-subtext {
-  font-size: 20px;
+  font-size: 1.5rem; /* adjust as needed */
   line-height: 1.7;
   color: #6b7280;
   max-width: 600px;
@@ -342,7 +343,7 @@
 
 @media (max-width: 768px) {
   .challenge-subtext {
-    font-size: 17px;
+    font-size: 40px;
     line-height: 1.6;
   }
 }
@@ -840,6 +841,8 @@
 
 /* ══════════════════════════════════════
    SCOPE & OPPORTUNITY
+/* ══════════════════════════════════════
+   SCOPE & OPPORTUNITY
 ══════════════════════════════════════ */
 .scope-section {
   padding: 110px 0;
@@ -847,6 +850,19 @@
   overflow: hidden;
   width: 100%;
 }
+
+/* Bigger heading + subtext just for this section's header */
+.scope-section .section-header {
+  max-width: 799px; /* widen slightly so the larger text doesn't wrap too tight */
+}
+.scope-section .section-header h2 {
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+}
+.scope-section .section-header p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
 .scope-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 72px; align-items: center; }
 .scope-cards { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
 .scope-card {
@@ -861,10 +877,9 @@
 .scope-card i { font-size: 1.4rem; color: var(--green-mid); display: block; margin-bottom: 12px; }
 .scope-card strong { display: block; font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--green); margin-bottom: 6px; }
 .scope-card span { font-size: 0.74rem; color: var(--ink-muted); line-height: 1.4; }
-.scope-text h3 { font-family: var(--font-display); font-size: 2.3rem; font-weight: 700; color: var(--ink); margin-bottom: 22px; }
+.scope-text h3 { font-family: var(--font-display); font-size: 3.3rem; font-weight: 700; color: var(--ink); margin-bottom: 22px; }
 .scope-text p { font-size: 0.91rem; color: var(--ink-soft); line-height: 1.78; margin-bottom: 18px; }
 .scope-text p strong { color: var(--green); }
-
 /* ══════════════════════════════════════
    CTA
 ══════════════════════════════════════ */

@@ -134,28 +134,29 @@ export class Dashboard implements AfterViewInit {
      short phone or a tall desktop screen.
   ══════════════════════════════════════ */
   private initScrollReveal(): void {
-    const targets: NodeListOf<HTMLElement> =
-      this.el.nativeElement.querySelectorAll('.reveal, .reveal-stagger');
+  const targets: NodeListOf<HTMLElement> =
+    this.el.nativeElement.querySelectorAll('.reveal, .reveal-stagger');
 
-    if (!targets.length) return;
+  if (!targets.length) return;
 
-    targets.forEach(el => el.classList.add('reveal-init'));
+  targets.forEach(el => el.classList.add('reveal-init'));
 
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0,
-        rootMargin: '0px 0px -10% 0px'
-      }
-    );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+        } else {
+          // element scrolled out of view (up OR down) — hide it again
+          entry.target.classList.remove('reveal-visible');
+        }
+      });
+    },
+    {
+      threshold: 0,
+      rootMargin: '0px 0px -10% 0px'
+    }
+  );
 
-    targets.forEach(el => observer.observe(el));
-  }
-}
+  targets.forEach(el => observer.observe(el));
+}}
