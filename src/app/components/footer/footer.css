@@ -1,83 +1,163 @@
+:host {
+  display: block;
+
+  --spacing: 0.25rem;
+
+  --footer-bg: #111111;
+  --footer-card-bg: #14141f;
+  --office-box-bg: #1f1f2e;
+
+  --text-main: #ffffff;
+  --text-muted: #adb5bd;
+  --text-dim: #6c757d;
+
+  --accent: #c8a96e;
+  --step-word-color: #29292b;
+}
+
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
+
+.site-footer {
+  overflow: hidden;
+  background: var(--footer-bg);
+}
+
+/*
+  This is the total footer scroll area.
+
+  It is only 130vh, so there is no large empty gap.
+  Increase to 150vh only if you want STEP to reveal more slowly.
+*/
+.footer-reveal-section {
+  position: relative;
+  min-height: 140vh;
+  overflow: scroll;
+  background: var(--footer-bg);
+}
+
+/* =========================================================
+   LARGE STEP WORD
+========================================================= */
+
+/*
+  This layer is behind the sticky footer panel.
+  It starts directly after / behind the bottom portion
+  of the normal footer.
+*/
+.step-brand-layer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  height: 48vh;
+  overflow: hidden;
+
+  background: var(--footer-bg);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/*
+  Similar sizing concept to Plane:
+  400 * 0.25rem = 100rem = 1600px.
+
+  This gives a very large responsive word but avoids horizontal
+  page scrolling on small screens.
+*/
+.step-brand-svg {
+  display: block;
+
+  width: min(calc(var(--spacing) * 400), 110vw);
+  max-width: none;
+  height: auto;
+
+  margin-bottom: -2px;
+  overflow: visible;
+}
+
+.step-brand-svg text {
+  fill: var(--step-word-color);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 350px;
+  font-weight: 800;
+  letter-spacing: 15px;
+}
+
+/* =========================================================
+   STICKY FOOTER PANEL
+========================================================= */
+
+/*
+  The footer stays visible during the opening effect.
+
+  Do not use min-height: 100vh here.
+  That is what creates the unwanted large gap before STEP.
+*/
+.footer-sticky-content {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+
+  background: var(--footer-bg);
+}
+
+/*
+  Small bottom spacing keeps the STEP word close to your
+  footer content.
+*/
+.footer-main {
+  padding-top: 32px;
+  padding-bottom: 5px;
+  background: var(--footer-bg);
+}
+
+/* =========================================================
+   FOOTER CARD
+========================================================= */
+
 .footer-card {
-  background-color: #14141f;
+  background: var(--footer-card-bg);
   border-radius: 20px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
 }
 
-.office-box {
-  background-color: #1f1f2e;
-  border-radius: 14px;
-  padding: 18px 20px;
-}
-
-.social-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background-color: #1f1f2e;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background-color 0.2s ease;
-}
-.social-icon:hover {
-  background-color: #2e2e45;
-}
-
-.icon-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background-color: #2a2a3a;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 12px;
-}
-.icon-btn:hover {
-  background-color: #3a3a55;
-  color: #c8a96e;
-}
-
-.footer-link {
-  color: #adb5bd;
-  text-decoration: none;
-}
-.footer-link:hover {
-  color: #c8a96e;
-}
-
-.bottom-link {
-  color: #adb5bd;
-  text-decoration: none;
-}
-.bottom-link:hover {
-  color: #c8a96e;
-}
+/* =========================================================
+   LOGO
+========================================================= */
 
 .footer-logo-link {
-  text-decoration: none;
   display: inline-block;
+  text-decoration: none;
 }
 
 .footer-logo {
-  width: 300px;
-  height: 120px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px;
+
+  width: 300px;
+  height: 120px;
   margin-bottom: 18px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  padding: 8px 12px;
+
+  overflow: hidden;
+
+  background: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .footer-logo:hover {
@@ -86,7 +166,198 @@
 }
 
 .footer-logo img {
-  width: 150%;
+  display: block;
+
+  width: 100%;
+  max-width: none;
   height: 150%;
+
   object-fit: contain;
+}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.footer-description,
+.office-location {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.office-title {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+/* =========================================================
+   OFFICE BOXES
+========================================================= */
+
+.office-box {
+  padding: 18px 20px;
+  background: var(--office-box-bg);
+  border-radius: 14px;
+}
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  color: var(--text-main);
+  font-size: 14px;
+  text-decoration: none;
+
+  background: var(--office-box-bg);
+  border-radius: 8px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-icon:hover {
+  color: var(--accent);
+  background: #2e2e45;
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   PHONE / EMAIL BUTTONS
+========================================================= */
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  color: var(--text-main);
+  font-size: 12px;
+  text-decoration: none;
+
+  background: #2a2a3a;
+  border-radius: 6px;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+  color: var(--accent);
+  background: #3a3a55;
+}
+
+/* =========================================================
+   BOTTOM BAR
+========================================================= */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 8px 8px;
+}
+
+.copyright,
+.footer-policy-links {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.footer-policy-links {
+  display: flex;
+  gap: 8px;
+}
+
+.bottom-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bottom-link:hover {
+  color: var(--accent);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+  .footer-reveal-section {
+    min-height: 120vh;
+  }
+
+  .footer-main {
+    padding-top: 25px;
+    padding-bottom: 4px;
+  }
+
+  .footer-logo {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+
+    padding-top: 12px;
+    padding-bottom: 6px;
+
+    text-align: center;
+  }
+
+  .footer-policy-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .step-brand-layer {
+    height: 34vh;
+  }
+
+  .step-brand-svg {
+    width: 145vw;
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .step-brand-svg text {
+    font-size: 390px;
+    letter-spacing: -35px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-logo,
+  .social-icon,
+  .icon-btn,
+  .bottom-link {
+    transition: none;
+  }
 }

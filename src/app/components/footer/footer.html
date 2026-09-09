@@ -1,86 +1,186 @@
-<footer class="pt-4 pb-4 mt-5">
-  <div class="container">
+<footer class="site-footer">
 
-    <!-- Dark rounded card -->
-    <div class="footer-card p-4 p-md-5">
-      <div class="row g-4 align-items-start">
+  <!--
+    This section provides scroll distance.
+    The footer panel stays sticky first and then moves upward,
+    exposing the large STEP word at the bottom.
+  -->
+  <section class="footer-reveal-section">
 
-        <!-- Brand + Social -->
-        <div class="col-lg-4 col-md-5">
-          <a routerLink="/" class="footer-logo-link">
-            <div class="footer-logo">
-              <img
-                src="/footer.jpeg"
-                alt="STEP Logo"
-                onerror="this.style.display='none'"
-              />
-            </div>
-          </a>
+    <!-- Large STEP visual behind the footer content -->
+    <div class="step-brand-layer" aria-hidden="true">
+      <svg
+        class="step-brand-svg"
+        viewBox="0 0 1600 500"
+        role="presentation"
+        focusable="false"
+      >
+        <text
+          x="800"
+          y="390"
+          text-anchor="middle"
+        >
+          STEP
+        </text>
+      </svg>
+    </div>
 
-          <p class="mb-3" style="color:#adb5bd; font-size: 0.90rem;">
-            The Finishing School - bridging the gap between education and employment through long-term, individual-focused career coaching.
-          </p>
+    <!-- Sticky panel containing your existing footer -->
+    <div class="footer-sticky-content">
 
-          <div class="d-flex gap-2">
-            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
+      <div class="footer-main">
+        <div class="container">
 
-        <!-- Offices -->
-        <div class="col-lg-8 col-md-7">
-          <p class="mb-3" style="color:#adb5bd; font-size: 0.85rem;">
-            Reach Us
-          </p>
+          <!-- Main dark rounded footer card -->
+          <div class="footer-card p-4 p-md-5">
+            <div class="row g-4 align-items-start">
 
-          <div class="row g-3">
-            <div class="col-md-6">
-              <div class="office-box h-100">
-                <h6 class="fw-bold mb-2" style="color:#ffffff;">#6-6-126/A/1/1, VidyaNagar, Rajanna Sircilla, Telangana-505301</h6>
-                <p class="mb-3" style="color:#adb5bd; font-size: 0.9rem;">
-                  Rajanna Sircilla, Telangana, India
+              <!-- Brand + social media -->
+              <div class="col-lg-4 col-md-5">
+                <a routerLink="/" class="footer-logo-link">
+                  <div class="footer-logo">
+                    <img
+                      src="/footer.jpeg"
+                      alt="STEP Logo"
+                      onerror="this.style.display='none'"
+                    />
+                  </div>
+                </a>
+
+                <p class="footer-description mb-3">
+                  The Finishing School - bridging the gap between education and
+                  employment through long-term, individual-focused career coaching.
                 </p>
+
                 <div class="d-flex gap-2">
-                  <a href="tel:+916281039196" class="icon-btn" aria-label="Call"><i class="fas fa-phone"></i></a>
-                  <a href="mailto:info@step-edu.org" class="icon-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-              </div>
-            </div>
+                  <a href="#" class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
 
-            <div class="col-md-6">
-              <div class="office-box h-100">
-              <h6 class="fw-bold mb-2 " style="color:#ffffff;">Hyderabad, Telangana</h6>
-                <p class="mb-3" style="color:#adb5bd; font-size: 0.9rem;">
-                  Hyderabad, Telangana, India
-                </p>
-                  <div class="d-flex gap-2">
-                  <a href="tel:+916281039196" class="icon-btn" aria-label="Call"><i class="fas fa-phone"></i></a>
-                  <a href="mailto:info@step-edu.org" class="icon-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                  <a href="#" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+
+                  <a href="#" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+
+                  <a href="#" class="social-icon" aria-label="X">
+                    <i class="fab fa-x-twitter"></i>
+                  </a>
+
+                  <a href="#" class="social-icon" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                  </a>
                 </div>
               </div>
+
+              <!-- Reach Us / Offices -->
+              <div class="col-lg-8 col-md-7">
+                <p class="footer-label mb-3">
+                  Reach Us
+                </p>
+
+                <div class="row g-3">
+
+                  <!-- Rajanna Sircilla -->
+                  <div class="col-md-6">
+                    <div class="office-box h-100">
+                      <h6 class="office-title mb-2">
+                        #6-6-126/A/1/1, VidyaNagar, Rajanna Sircilla,
+                        Telangana-505301
+                      </h6>
+
+                      <p class="office-location mb-3">
+                        Rajanna Sircilla, Telangana, India
+                      </p>
+
+                      <div class="d-flex gap-2">
+                        <a
+                          href="tel:+916281039196"
+                          class="icon-btn"
+                          aria-label="Call Sircilla office"
+                        >
+                          <i class="fas fa-phone"></i>
+                        </a>
+
+                        <a
+                          href="mailto:info@step-edu.org"
+                          class="icon-btn"
+                          aria-label="Email STEP"
+                        >
+                          <i class="fas fa-envelope"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hyderabad -->
+                  <div class="col-md-6">
+                    <div class="office-box h-100">
+                      <h6 class="office-title mb-2">
+                        Hyderabad, Telangana
+                      </h6>
+
+                      <p class="office-location mb-3">
+                        Hyderabad, Telangana, India
+                      </p>
+
+                      <div class="d-flex gap-2">
+                        <a
+                          href="tel:+916281039196"
+                          class="icon-btn"
+                          aria-label="Call Hyderabad office"
+                        >
+                          <i class="fas fa-phone"></i>
+                        </a>
+
+                        <a
+                          href="mailto:info@step-edu.org"
+                          class="icon-btn"
+                          aria-label="Email STEP"
+                        >
+                          <i class="fas fa-envelope"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </div>
+
+          <!-- Copyright and legal links -->
+          <div class="footer-bottom">
+            <p class="copyright">
+              Copyright &copy; 2020 by STEP - The Finishing School
+            </p>
+
+            <div class="footer-policy-links">
+              <a routerLink="/terms" class="bottom-link">
+                Terms &amp; Conditions
+              </a>
+
+              <span aria-hidden="true">|</span>
+
+              <a routerLink="/privacy" class="bottom-link">
+                Privacy Policy
+              </a>
+
+              <span aria-hidden="true">|</span>
+
+              <a routerLink="/sitemap" class="bottom-link">
+                Sitemap
+              </a>
+            </div>
+          </div>
+
         </div>
-
       </div>
-    </div>
 
-    <!-- Bottom bar -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 px-2">
-      <p class="mb-2 mb-md-0 small" style="color:#6c757d;">
-        Copyright &copy; 2020 by STEP - The Finishing School
-      </p>
-      <div class="small">
-        <a routerLink="/terms" class="bottom-link">Terms &amp; Conditions</a>
-        <span style="color:#6c757d;"> | </span>
-        <a routerLink="/privacy" class="bottom-link">Privacy Policy</a>
-        <span style="color:#6c757d;"> | </span>
-        <a routerLink="/sitemap" class="bottom-link">Sitemap</a>
-      </div>
     </div>
+  </section>
 
-  </div>
 </footer>
