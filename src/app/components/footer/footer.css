@@ -15,119 +15,117 @@
   --step-word-color: #29292b;
 }
 
+
 /* =========================================================
-   MAIN WRAPPER
+   MAIN FOOTER
 ========================================================= */
 
 .site-footer {
-  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
   background: var(--footer-bg);
 }
 
-/*
-  This is the total footer scroll area.
 
-  It is only 130vh, so there is no large empty gap.
-  Increase to 150vh only if you want STEP to reveal more slowly.
-*/
+/* =========================================================
+   REVEAL SECTION
+========================================================= */
+
 .footer-reveal-section {
   position: relative;
-  min-height: 140vh;
-  overflow: scroll;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
   background: var(--footer-bg);
-}
 
-/* =========================================================
-   LARGE STEP WORD
-========================================================= */
-
-/*
-  This layer is behind the sticky footer panel.
-  It starts directly after / behind the bottom portion
-  of the normal footer.
-*/
-.step-brand-layer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-
-  height: 48vh;
   overflow: hidden;
-
-  background: var(--footer-bg);
-
-  pointer-events: none;
-  user-select: none;
 }
 
-/*
-  Similar sizing concept to Plane:
-  400 * 0.25rem = 100rem = 1600px.
-
-  This gives a very large responsive word but avoids horizontal
-  page scrolling on small screens.
-*/
-.step-brand-svg {
-  display: block;
-
-  width: min(calc(var(--spacing) * 400), 110vw);
-  max-width: none;
-  height: auto;
-
-  margin-bottom: -2px;
-  overflow: visible;
-}
-
-.step-brand-svg text {
-  fill: var(--step-word-color);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 350px;
-  font-weight: 800;
-  letter-spacing: 15px;
-}
 
 /* =========================================================
-   STICKY FOOTER PANEL
+   FOOTER STICKY CONTENT
 ========================================================= */
 
-/*
-  The footer stays visible during the opening effect.
-
-  Do not use min-height: 100vh here.
-  That is what creates the unwanted large gap before STEP.
-*/
 .footer-sticky-content {
-  position: sticky;
+  position: relative;
+
   z-index: 2;
-  top: 0;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
 
   background: var(--footer-bg);
 }
 
-/*
-  Small bottom spacing keeps the STEP word close to your
-  footer content.
-*/
+
+/* =========================================================
+   FOOTER MAIN
+========================================================= */
+
 .footer-main {
+  width: 100%;
+
   padding-top: 32px;
   padding-bottom: 5px;
+
   background: var(--footer-bg);
 }
 
+
 /* =========================================================
-   FOOTER CARD
+   MAIN FOOTER BOX
 ========================================================= */
 
 .footer-card {
+  width: 100%;
+
+  padding: 40px;
+
   background: var(--footer-card-bg);
+
   border-radius: 20px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28);
+
+  box-sizing: border-box;
+
+  overflow: hidden;
 }
+
+
+/* =========================================================
+   FOOTER CONTENT
+========================================================= */
+
+.footer-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(360px, 1fr)
+    minmax(0, 2fr);
+
+  column-gap: 50px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT BRAND
+========================================================= */
+
+.footer-brand {
+  min-width: 0;
+}
+
 
 /* =========================================================
    LOGO
@@ -135,82 +133,86 @@
 
 .footer-logo-link {
   display: inline-block;
+
   text-decoration: none;
 }
 
+
 .footer-logo {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   width: 300px;
   height: 120px;
-  margin-bottom: 18px;
+
+  margin-bottom: 20px;
+
   padding: 8px 12px;
+
+  background: #ffffff;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.35);
 
   overflow: hidden;
 
-  background: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  box-sizing: border-box;
 }
 
-.footer-logo:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-}
 
 .footer-logo img {
   display: block;
 
   width: 100%;
+
   max-width: none;
+
   height: 150%;
 
   object-fit: contain;
 }
 
+
 /* =========================================================
-   TEXT
+   DESCRIPTION
 ========================================================= */
 
-.footer-description,
-.office-location {
+.footer-description {
+  max-width: 500px;
+
+  margin: 0 0 22px;
+
   color: var(--text-muted);
+
   font-size: 0.9rem;
+
+  line-height: 1.55;
 }
 
-.footer-label {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-.office-title {
-  color: var(--text-main);
-  font-weight: 700;
-}
 
 /* =========================================================
-   OFFICE BOXES
+   SOCIAL ICONS
 ========================================================= */
 
-.office-box {
-  padding: 18px 20px;
-  background: var(--office-box-bg);
-  border-radius: 14px;
+.footer-socials {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
 }
 
-/* =========================================================
-   SOCIAL LINKS
-========================================================= */
 
 .social-icon {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -218,10 +220,13 @@
   height: 36px;
 
   color: var(--text-main);
+
   font-size: 14px;
+
   text-decoration: none;
 
   background: var(--office-box-bg);
+
   border-radius: 8px;
 
   transition:
@@ -230,18 +235,116 @@
     transform 0.2s ease;
 }
 
+
 .social-icon:hover {
   color: var(--accent);
+
   background: #2e2e45;
+
   transform: translateY(-3px);
 }
 
+
 /* =========================================================
-   PHONE / EMAIL BUTTONS
+   RIGHT SIDE — REACH US
 ========================================================= */
 
-.icon-btn {
+.footer-contact-wrapper {
+  min-width: 0;
+}
+
+
+.footer-label {
+  margin: 0 0 14px;
+
+  color: var(--text-muted);
+
+  font-size: 0.85rem;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   CONTACT / OFFICE GRID
+========================================================= */
+
+.footer-contact {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   OFFICE BOX
+========================================================= */
+
+.contact-item {
+  width: 100%;
+
+  min-height: 190px;
+
+  padding: 20px;
+
+  background: var(--office-box-bg);
+
+  border-radius: 14px;
+
+  box-sizing: border-box;
+}
+
+
+.contact-content {
+  width: 100%;
+}
+
+
+.contact-content h5 {
+  margin: 0 0 10px;
+
+  color: var(--text-main);
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+
+.contact-content p {
+  margin: 0 0 18px;
+
+  color: var(--text-muted);
+
+  font-size: 0.85rem;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   CONTACT BUTTONS
+========================================================= */
+
+.contact-actions {
   display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.contact-action {
+  display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -249,10 +352,13 @@
   height: 32px;
 
   color: var(--text-main);
+
   font-size: 12px;
+
   text-decoration: none;
 
   background: #2a2a3a;
+
   border-radius: 6px;
 
   transition:
@@ -260,104 +366,454 @@
     background-color 0.2s ease;
 }
 
-.icon-btn:hover {
+
+.contact-action:hover {
   color: var(--accent);
+
   background: #3a3a55;
 }
 
+
 /* =========================================================
-   BOTTOM BAR
+   FOOTER BOTTOM
+   OUTSIDE ROUNDED BOX
 ========================================================= */
 
 .footer-bottom {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
+  width: 100%;
+
+  margin: 0;
+
   padding: 12px 8px 8px;
+
+  box-sizing: border-box;
 }
+
 
 .copyright,
 .footer-policy-links {
   margin: 0;
+
   color: var(--text-dim);
+
   font-size: 0.85rem;
 }
 
+
 .footer-policy-links {
   display: flex;
+
+  align-items: center;
+
   gap: 8px;
 }
 
+
 .bottom-link {
   color: var(--text-muted);
+
   text-decoration: none;
+
   transition: color 0.2s ease;
 }
+
 
 .bottom-link:hover {
   color: var(--accent);
 }
 
+
 /* =========================================================
-   MOBILE
+   =========================================================
+   STEP SECTION
+   DO NOT CHANGE THIS SECTION
+   =========================================================
+========================================================= */
+
+
+/* =========================================================
+   STEP SPACER
+========================================================= */
+
+.step-spacer {
+  height: 150vh;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   STEP BRAND LAYER
+========================================================= */
+
+.step-brand-layer {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: var(--footer-bg);
+
+  pointer-events: none;
+
+  user-select: none;
+
+  will-change: top;
+}
+
+
+/* =========================================================
+   STEP SVG
+========================================================= */
+
+.step-brand-svg {
+  display: block;
+
+  width: min(
+    calc(var(--spacing) * 400),
+    110vw
+  );
+
+  max-width: none;
+
+  height: auto;
+
+  margin-bottom: -2px;
+
+  overflow: visible;
+}
+
+
+.step-brand-svg text {
+  fill: var(--step-word-color);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 620px;
+
+  font-weight: 800;
+
+  letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   MOBILE FOOTER BOX
+   STEP IS NOT TOUCHED HERE
 ========================================================= */
 
 @media (max-width: 767px) {
-  .footer-reveal-section {
-    min-height: 120vh;
-  }
+
+  /* -----------------------------------------------
+     OUTER FOOTER
+  ------------------------------------------------ */
 
   .footer-main {
-    padding-top: 25px;
-    padding-bottom: 4px;
+    padding: 16px 10px 5px;
   }
+
+
+  /* -----------------------------------------------
+     ROUNDED BOX
+  ------------------------------------------------ */
+
+  .footer-card {
+    width: 100%;
+
+    padding: 20px 15px 18px;
+
+    background: var(--footer-card-bg);
+
+    border-radius: 18px;
+
+    box-shadow:
+      0 15px 35px rgba(0, 0, 0, 0.30);
+
+    box-sizing: border-box;
+  }
+
+
+  /* -----------------------------------------------
+     CONTENT STACK
+  ------------------------------------------------ */
+
+  .footer-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+
+    width: 100%;
+  }
+
+
+  /* -----------------------------------------------
+     BRAND
+  ------------------------------------------------ */
+
+  .footer-brand {
+    width: 100%;
+  }
+
 
   .footer-logo {
     width: 100%;
+
     max-width: 300px;
+
+    height: 105px;
+
+    margin-bottom: 15px;
+
+    padding: 8px 10px;
+
+    border-radius: 11px;
   }
+
+
+  .footer-description {
+    width: 100%;
+
+    max-width: none;
+
+    margin-bottom: 16px;
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+  }
+
+
+  /* -----------------------------------------------
+     SOCIAL
+  ------------------------------------------------ */
+
+  .footer-socials {
+    gap: 8px;
+  }
+
+
+  .social-icon {
+    width: 34px;
+    height: 34px;
+
+    font-size: 13px;
+
+    border-radius: 7px;
+  }
+
+
+  /* -----------------------------------------------
+     REACH US
+  ------------------------------------------------ */
+
+  .footer-contact-wrapper {
+    width: 100%;
+  }
+
+
+  .footer-label {
+    margin-bottom: 12px;
+
+    font-size: 0.82rem;
+  }
+
+
+  /* -----------------------------------------------
+     OFFICE BOXES STACK
+  ------------------------------------------------ */
+
+  .footer-contact {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    width: 100%;
+  }
+
+
+  .contact-item {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 15px;
+
+    border-radius: 12px;
+  }
+
+
+  .contact-content h5 {
+    margin-bottom: 7px;
+
+    font-size: 0.76rem;
+
+    line-height: 1.4;
+  }
+
+
+  .contact-content p {
+    margin-bottom: 10px;
+
+    font-size: 0.70rem;
+
+    line-height: 1.4;
+  }
+
+
+  /* -----------------------------------------------
+     CONTACT BUTTONS
+  ------------------------------------------------ */
+
+  .contact-action {
+    width: 30px;
+    height: 30px;
+
+    font-size: 11px;
+  }
+
+
+  /* -----------------------------------------------
+     COPYRIGHT
+     OUTSIDE BOX
+  ------------------------------------------------ */
 
   .footer-bottom {
     flex-direction: column;
-    gap: 10px;
 
-    padding-top: 12px;
-    padding-bottom: 6px;
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 9px 4px 5px;
 
     text-align: center;
   }
 
+
+  .copyright {
+    font-size: 0.68rem;
+
+    line-height: 1.4;
+  }
+
+
   .footer-policy-links {
     flex-wrap: wrap;
+
     justify-content: center;
+
+    gap: 5px;
+
+    font-size: 0.68rem;
+
+    line-height: 1.4;
   }
 
-  .step-brand-layer {
-    height: 34vh;
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .footer-main {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
-  .step-brand-svg {
-    width: 145vw;
-    max-width: none;
-    margin-bottom: 0;
+
+  .footer-card {
+    padding: 17px 13px 15px;
+
+    border-radius: 16px;
   }
 
-  .step-brand-svg text {
-    font-size: 390px;
-    letter-spacing: -35px;
+
+  .footer-logo {
+    height: 95px;
+  }
+
+
+  .footer-description {
+    font-size: 0.77rem;
+  }
+
+
+  .contact-content h5 {
+    font-size: 0.72rem;
+  }
+
+
+  .contact-content p {
+    font-size: 0.67rem;
+  }
+
+
+  .copyright,
+  .footer-policy-links {
+    font-size: 0.62rem;
   }
 }
+
 
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .footer-logo,
   .social-icon,
-  .icon-btn,
+  .contact-action,
   .bottom-link {
     transition: none;
+  }
+
+
+  /* ORIGINAL STEP REDUCED-MOTION BEHAVIOR */
+
+  .step-brand-layer {
+    position: relative;
+
+    height: auto;
+
+    padding: 40px 0;
+
+    top: auto !important;
+  }
+
+
+  .step-spacer {
+    display: none;
   }
 }
