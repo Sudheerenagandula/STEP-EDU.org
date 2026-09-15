@@ -135,8 +135,8 @@
 .nav-brand-img {
   display: block;
 
-  width: 72px;
-  height: 72px;
+  width: 82px;
+  height: 82px;
 
   max-width: 100%;
   max-height: 100%;
@@ -167,11 +167,11 @@
 .nav-brand-name {
   font-family: 'Cormorant Garamond', serif;
 
-  font-size: 2.05rem;
+  font-size: 2.35rem;
 
   font-weight: 1000;
 
-  letter-spacing: 0.16em;
+  letter-spacing: 0.10em;
 
   line-height: 1;
 
